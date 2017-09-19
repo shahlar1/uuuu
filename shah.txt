@@ -1,18 +1,37 @@
-Iki kez bana 'Yatsi, Bay Babbage, makineye yanlis sekil verdiysen dogru cevaplar ortaya çikacak mi?' Diye soruldu. [...] Düsüncelerin karisikligini tam olarak kavrayamiyorum Böyle bir soruna neden olabilir.
+Iki kez bana 'Yatsi, Bay Babbage, makineye yanlis sekil verdiysen dogru cevaplar ortaya çikacak mi?'
+ Diye soruldu. [...] Düsüncelerin karisikligini tam olarak kavrayamiyorum Böyle bir soruna neden olabilir.
 Charles Babbage, Bir Felsefecinin Hayatindan Geçisler (1864)
-Sayilar, Boolean'lar ve dizeler, veri yapilarinin insa edildigi tuglalardir. Ama tek bir tugladan çok fazla ev yapamazsin. Nesneler degerlerimizi (diger nesneler dahil) birlikte gruplandirmamizi ve böylece daha karmasik yapilar olusturmamizi saglar.
-Simdiye kadar insa ettigimiz programlar yalnizca basit veri türlerinde çalistiklarindan ciddi sekilde engellendi. Bu bölüm, araç kitinize veri yapilari hakkinda temel bir anlayis kazandiracaktir. Sonuna kadar, bazi faydali programlar yazmaya baslamak için yeterince bilginiz olacak.
-Bu bölüm, eldeki soruna uyguladiklari gibi kavramlari tanitan az çok gerçekçi bir programlama örnegi araciligiyla çalisacaktir. Örnek kod genellikle metinlerin basinda tanitilan islevler ve degiskenler üzerine kurulacaktir.
+Sayilar, Boolean'lar ve dizeler, veri yapilarinin insa edildigi tuglalardir. Ama tek bir tugladan çok fazla ev yapamazsin.
+ Nesneler degerlerimizi (diger nesneler dahil) birlikte gruplandirmamizi ve böylece daha karmasik yapilar olusturmamizi
+ saglar.
+Simdiye kadar insa ettigimiz programlar yalnizca basit veri türlerinde çalistiklarindan ciddi sekilde engellendi. 
+Bu bölüm, araç kitinize veri yapilari hakkinda temel bir anlayis kazandiracaktir. Sonuna kadar, bazi faydali
+ programlar yazmaya baslamak için yeterince bilginiz olacak.
+Bu bölüm, eldeki soruna uyguladiklari gibi kavramlari tanitan az çok gerçekçi bir programlama örnegi araciligiyla
+ çalisacaktir. Örnek kod genellikle metinlerin basinda tanitilan islevler ve degiskenler üzerine kurulacaktir.
 Weresquirrel
-Her an ve sonra, genellikle aksamlari sekiz ila on arasinda, Jacques kendisini firtinali kuyrugu ile küçük, tüylü bir kemirgenle dönüsür bulur.
-Bir yandan Jacques, klasik bir hayirseverlige sahip olmadigi için çok mutlu. Bir sincapa dönüsmek, kurt haline dönüsmekten daha az sorun yasama egilimindedir. Yanlislikla komsusunu yemeyi düsünmek yerine (bu garip olur), komsunun kedisi tarafindan yenilmek konusunda endiseleniyor. Mese kundaginda, çiplak ve yönsüz olan, tehlikeli derecede ince bir dalinda uyandiktan sonra iki kez odanin kapilarini ve pencerelerini geceleri kilitleyerek yere yogunlasmasi için yere birkaç ceviz koydu.
-Bu, kedi ve mese sorunlariyla ilgileniyor. Ancak Jacques hâlâ durumundan muzdarip. Dönüsümün düzensiz gerçeklesmesi onu bir sey tarafindan tetiklenebileceginden süpheleniyor. Bir süre, bunun sadece agaçlara dokundugu günlerde olduguna inaniyordu. Böylece agaçlara tamamen dokunmayi birakti ve hatta onlarin yanina girmekten kaçindi. Ancak sorun devam etti.
-Jacques, daha bilimsel bir yaklasima geçtiginde, o gün yaptigi her seyin günlük kaydini tutmaya ve form degistirip degistirmeyecegini düsünüyor. Bu verilerle dönüsümleri tetikleyen kosullari daraltmayi umuyor.
+Her an ve sonra, genellikle aksamlari sekiz ila on arasinda, Jacques kendisini firtinali kuyrugu ile küçük, 
+tüylü bir kemirgenle dönüsür bulur.
+Bir yandan Jacques, klasik bir hayirseverlige sahip olmadigi için çok mutlu. Bir sincapa dönüsmek, 
+kurt haline dönüsmekten daha az sorun yasama egilimindedir. Yanlislikla komsusunu yemeyi düsünmek 
+yerine (bu garip olur), komsunun kedisi tarafindan yenilmek konusunda endiseleniyor. Mese kundaginda, 
+çiplak ve yönsüz olan, tehlikeli derecede ince bir dalinda uyandiktan sonra iki kez odanin kapilarini
+ ve pencerelerini geceleri kilitleyerek yere yogunlasmasi için yere birkaç ceviz koydu.
+Bu, kedi ve mese sorunlariyla ilgileniyor. Ancak Jacques hâlâ durumundan muzdarip. Dönüsümün düzensiz
+ gerçeklesmesi onu bir sey tarafindan tetiklenebileceginden süpheleniyor. Bir süre, bunun sadece
+ agaçlara dokundugu günlerde olduguna inaniyordu. Böylece agaçlara tamamen dokunmayi birakti ve 
+hatta onlarin yanina girmekten kaçindi. Ancak sorun devam etti.
+Jacques, daha bilimsel bir yaklasima geçtiginde, o gün yaptigi her seyin günlük kaydini tutmaya
+ ve form degistirip degistirmeyecegini düsünüyor. Bu verilerle dönüsümleri tetikleyen kosullari daraltmayi umuyor.
 Yaptigi ilk is bu bilgiyi depolayan bir veri yapisi tasarlamaktir.
 Veri setleri
-Bir sürü dijital veri ile çalismak için, öncelikle makinenin belleginde temsil etmenin bir yolunu bulmamiz gerekir. Basit bir örnek olarak sayilarin bir koleksiyonunu temsil etmek istedigimizi söyleyin: 2, 3, 5, 7 ve 11.
-Dizelerle yaratici olabiliyoruz - sonuçta dizeler herhangi bir uzunluk olabilir, bu nedenle onlara çok fazla veri koyabiliriz ve temsil olarak "2 3 5 7 11" kullanabiliriz. Ancak bu garip. Rakamlara erismek için bir sekilde rakamlari çikarip sayilara dönüstürmeniz gerekirdi.
-Neyse ki JavaScript, deger dizilerinin depolanmasi için özel bir veri türü saglar. Buna bir dizi denir ve köseli ayraçlar arasinda virgülle ayrilmis degerler listesi olarak yazilir.
+Bir sürü dijital veri ile çalismak için, öncelikle makinenin belleginde temsil etmenin bir yolunu bulmamiz gerekir. 
+Basit bir örnek olarak sayilarin bir koleksiyonunu temsil etmek istedigimizi söyleyin: 2, 3, 5, 7 ve 11.
+Dizelerle yaratici olabiliyoruz - sonuçta dizeler herhangi bir uzunluk olabilir, bu nedenle onlara çok 
+fazla veri koyabiliriz ve temsil olarak "2 3 5 7 11" kullanabiliriz. Ancak bu garip. Rakamlara erismek
+ için bir sekilde rakamlari çikarip sayilara dönüstürmeniz gerekirdi.
+Neyse ki JavaScript, deger dizilerinin depolanmasi için özel bir veri türü saglar. Buna bir dizi denir
+ ve köseli ayraçlar arasinda virgülle ayrilmis degerler listesi olarak yazilir.
  
 
 
@@ -23,17 +42,39 @@ console.log(listOfNumbers[2]);
 console.log(listOfNumbers[2 - 1]);
 // ? 3
 
-Bir dizideki ögelere erismek için kullanilan gösterimde ayrica köseli parantezler kullanilir. Bir ifadeden hemen sonra bir çift köseli ayraç, içinde baska bir ifade bulunan, parantez içindeki ifadeyle verilen dizine karsilik gelen sol ifadedeki ögeyi arar.
-Bir dizinin ilk dizini sifir, bir dizin degil. Ilk eleman listOfNumbers [0] ile okunabilir. Programlama geçmisiniz yoksa, bu kural bazilarinin alismasina neden olabilir. Fakat sifir tabanli sayim, teknolojide uzun bir gelenege sahiptir ve bu sözlesme tutarli bir sekilde takip edildigi takdirde (JavaScript'te oldugu gibi) iyi sonuç verir.
+Bir dizideki ögelere erismek için kullanilan gösterimde ayrica köseli parantezler kullanilir. Bir
+ ifadeden hemen sonra bir çift köseli ayraç, içinde baska bir ifade bulunan, parantez içindeki ifadeyle
+ verilen dizine karsilik gelen sol ifadedeki ögeyi arar.
+Bir dizinin ilk dizini sifir, bir dizin degil. Ilk eleman listOfNumbers [0] ile okunabilir. Programlama
+ geçmisiniz yoksa, bu kural bazilarinin alismasina neden olabilir. Fakat sifir tabanli sayim, teknolojide
+ uzun bir gelenege sahiptir ve bu sözlesme tutarli bir sekilde takip edildigi takdirde (JavaScript'te oldugu gibi)
+ iyi sonuç verir.
 Özellikleri
-Geçmisteki örneklerde myString.length (bir dizenin uzunlugunu elde etmek için) ve Math.max (maksimum islevi) gibi birkaç süpheli görünümlü ifadeyi gördük. Bunlar, bir degere erisen ifadelerdir. Ilk durumda, myString degerinin length özelligine erisiriz. Ikincisinde, Math nesnesinde max adli mülkiyete erisiyoruz (matematikle ilgili degerler ve islevlerin bir koleksiyonu).
-Hemen hemen tüm JavaScript degerleri özelliklere sahiptir. Istisnalar bos ve tanimsizdir. Bu degersiz degerlerden birinde bir mülkiyet erismeye çalisirsaniz, bir hata alirsiniz.
+Geçmisteki örneklerde myString.length (bir dizenin uzunlugunu elde etmek için) ve Math.max (maksimum islevi)
+ gibi birkaç süpheli görünümlü ifadeyi gördük. Bunlar, bir degere erisen ifadelerdir. Ilk durumda, myString 
+degerinin length özelligine erisiriz. Ikincisinde, Math nesnesinde max adli mülkiyete erisiyoruz 
+(matematikle ilgili degerler ve islevlerin bir koleksiyonu).
+Hemen hemen tüm JavaScript degerleri özelliklere sahiptir. Istisnalar bos ve tanimsizdir. Bu degersiz 
+degerlerden birinde bir mülkiyet erismeye çalisirsaniz, bir hata alirsiniz.
 
 null.length;
 // ? TypeError: Cannot read property 'length' of null
-JavaScript'te özelliklere erismenin en yaygin iki yolu nokta ve köseli ayraçlardir. Hem value.x hem de value [x] degeri bir mülke erisir; ancak mutlaka ayni mülk degildir. Aradaki fark, x'in nasil yorumlandigi arasindadir. Bir nokta kullanirken, noktadan sonraki bölüm geçerli bir degisken adi olmali ve dogrudan mülkün adini belirtmelidir. Köseli parantez kullanirken, köseli parantezler arasindaki ifade, özellik adi elde etmek için degerlendirilir. Value.x, "x" adli deger özelligini getirirken, value [x] x ifadesini degerlendirmeye çalisir ve sonucu mülk adi olarak kullanir.
-Ilgilendiginiz mülke "uzunluk" denirse, size value.length derim demektir. Degisken i'de tutulan degerle adlandirilan mülkün çikarilmasini isterseniz, [i] degerini söyleyin. Ve mülk adlari herhangi bir dize olabilir, çünkü "2" veya "John Doe" adli bir özellige erismek istiyorsaniz, köseli parantez: deger [2] veya deger ["John Doe"] kullanmaniz gerekir. "2" veya "John Doe" geçerli bir degisken adi olmadigindan, nokta notasyonu araciligiyla erisilemediginden mülkün kesin adini önceden bilseniz bile bu durum söz konusudur.
-Bir dizideki ögeler özelliklerde saklanir. Bu özelliklerin isimleri sayilardir ve çogunlukla bir degiskenden isimlerini almamiz gerekir, onlara erismek için köseli ayraç sözdizimini kullanmamiz gerekir. Bir dizinin length özelligi, kaç elemani içerdigini gösterir. Bu özellik adi geçerli bir degisken adidir ve adini önceden biliyoruz, bu nedenle dizi uzunlugunu bulmak için genellikle array.length yazin çünkü bu dizi ["uzunluk"] yazmak daha kolaydir.
+JavaScript'te özelliklere erismenin en yaygin iki yolu nokta ve köseli ayraçlardir. 
+Hem value.x hem de value [x] degeri bir mülke erisir; ancak mutlaka ayni mülk degildir.
+ Aradaki fark, x'in nasil yorumlandigi arasindadir. Bir nokta kullanirken, noktadan sonraki bölüm geçerli 
+bir degisken adi olmali ve dogrudan mülkün adini belirtmelidir. Köseli parantez kullanirken, köseli parantezler
+ arasindaki ifade, özellik adi elde etmek için degerlendirilir. Value.x, "x" adli deger özelligini getirirken, 
+value [x] x ifadesini degerlendirmeye çalisir ve sonucu mülk adi olarak kullanir.
+Ilgilendiginiz mülke "uzunluk" denirse, size value.length derim demektir. Degisken i'de tutulan degerle 
+adlandirilan mülkün çikarilmasini isterseniz, [i] degerini söyleyin. Ve mülk adlari herhangi bir dize olabilir,
+ çünkü "2" veya "John Doe" adli bir özellige erismek istiyorsaniz, köseli parantez: deger [2] veya deger 
+["John Doe"] kullanmaniz gerekir. "2" veya "John Doe" geçerli bir degisken adi olmadigindan,
+ nokta notasyonu araciligiyla erisilemediginden mülkün kesin adini önceden bilseniz bile bu durum söz konusudur.
+Bir dizideki ögeler özelliklerde saklanir. Bu özelliklerin isimleri sayilardir ve çogunlukla bir degiskenden
+ isimlerini almamiz gerekir, onlara erismek için köseli ayraç sözdizimini kullanmamiz gerekir. Bir dizinin
+ length özelligi, kaç elemani içerdigini gösterir. Bu özellik adi geçerli bir degisken adidir ve adini önceden
+ biliyoruz, bu nedenle dizi uzunlugunu bulmak için genellikle array.length yazin çünkü bu dizi ["uzunluk"]
+ yazmak daha kolaydir.
 Yöntemler
 Hem dizge hem de dizi nesneleri, uzunluk özelligine ek olarak, islev degerlerine atifta bulunan birkaç özellik içerir.
 
@@ -42,9 +83,12 @@ console.log(typeof doh.toUpperCase);
 // ? function
 console.log(doh.toUpperCase());
 // ? DOH
-Her dizgenin toUpperCase özelligi vardir. Aradiginda, tüm harflerin büyük harfe dönüstürüldügü dizgenin bir kopyasi geri gelir. Ayrica LowerCase de var. Bunun ne oldugunu tahmin edebilirsiniz.
-Ilginçtir ki, toUpperCase çagrisi herhangi bir argümani geçirmese de, fonksiyon bir sekilde "Doh" dizesine erisebilir; bu özelligi, mülkümüzü aradigimiz degerdir. Bunun nasil isledigi Bölüm 6'da açiklanmistir.
-Islevleri içeren özellikler genelde ait olduklari deger yöntemleri olarak adlandirilir. Gibi "toUpperCase bir dize yöntemi" dir.
+Her dizgenin toUpperCase özelligi vardir. Aradiginda, tüm harflerin büyük harfe dönüstürüldügü dizgenin bir 
+kopyasi geri gelir. Ayrica LowerCase de var. Bunun ne oldugunu tahmin edebilirsiniz.
+Ilginçtir ki, toUpperCase çagrisi herhangi bir argümani geçirmese de, fonksiyon bir sekilde "Doh" dizesine
+ erisebilir; bu özelligi, mülkümüzü aradigimiz degerdir. Bunun nasil isledigi Bölüm 6'da açiklanmistir.
+Islevleri içeren özellikler genelde ait olduklari deger yöntemleri olarak adlandirilir. Gibi 
+"toUpperCase bir dize yöntemi" dir.
 Bu örnek, dizi nesnelerinin sahip oldugu bazi yöntemleri göstermektedir:
 var mack = [];
 mack.push("Mack");
@@ -57,10 +101,16 @@ console.log(mack.pop());
 // ? Knife
 console.log(mack);
 // ? ["Mack", "the"]
-Itme yöntemi, bir dizinin sonuna degerler eklemek için kullanilabilir. Pop yöntemi aksini yapar: dizinin sonunda degeri kaldirir ve döndürür. Bir dizge dizisi, birlestirme yöntemiyle tek bir dizeye düzlestirilebilir. Katilmaya verilen argüman, dizinin elemanlari arasinda yapistirilan metni belirler.
+Itme yöntemi, bir dizinin sonuna degerler eklemek için kullanilabilir. Pop yöntemi aksini yapar: dizinin
+ sonunda degeri kaldirir ve döndürür. Bir dizge dizisi, birlestirme yöntemiyle tek bir dizeye
+ düzlestirilebilir. Katilmaya verilen argüman, dizinin elemanlari arasinda yapistirilan metni belirler.
 Nesneler
-Weresquirrel'e dönün. Bir günlük günlük girdileri dizisi olarak temsil edilebilir. Ancak girisler sadece bir sayi veya bir dizeden olusmamaktadir; her girdi, aktivitelerin bir listesini ve Jacques'in bir sincap haline gelip gelmedigini gösteren bir Boolean degerini saklamalidir. Ideal olarak, bu degerleri tek bir degere gruplamak ve daha sonra bu gruplanmis degerleri günlük girdileri dizisine eklemek istiyoruz.
-Nesne nesnesinin degerleri, rastgele özellik koleksiyonlaridir ve biz bu özellikleri istedigimiz gibi ekleyebilir veya kaldirabiliriz. Bir nesne yaratmanin bir yolu kivircik parantez gösterimini kullanmaktir.
+Weresquirrel'e dönün. Bir günlük günlük girdileri dizisi olarak temsil edilebilir. Ancak girisler sadece 
+bir sayi veya bir dizeden olusmamaktadir; her girdi, aktivitelerin bir listesini ve Jacques'in bir sincap
+ haline gelip gelmedigini gösteren bir Boolean degerini saklamalidir. Ideal olarak, bu degerleri tek bir 
+degere gruplamak ve daha sonra bu gruplanmis degerleri günlük girdileri dizisine eklemek istiyoruz.
+Nesne nesnesinin degerleri, rastgele özellik koleksiyonlaridir ve biz bu özellikleri istedigimiz gibi 
+ekleyebilir veya kaldirabiliriz. Bir nesne yaratmanin bir yolu kivircik parantez gösterimini kullanmaktir.
 var day1 = {
   squirrel: false,
   events: ["work", "touched tree", "pizza", "running",
@@ -73,16 +123,27 @@ console.log(day1.wolf);
 day1.wolf = false;
 console.log(day1.wolf);
 // ? false
-Kivrimli parantezlerin içinde, virgülle ayrilmis özelliklerin bir listesini verebiliriz. Her mülkiyet, mülk için bir deger saglayan bir ifadenin ardindan, iki nokta üst üste tarafindan izlenen bir ad olarak yazilir. Bosluklar ve satir sonlari önemli degildir. Bir nesne birden fazla satir içerdiginde, önceki örnekteki gibi girintilendirilebilirlik okunabilirligi artirir. Isimleri geçerli olmayan degisken adlari veya geçerli sayilari olan esyalar alintilanmalidir.
+Kivrimli parantezlerin içinde, virgülle ayrilmis özelliklerin bir listesini verebiliriz. Her mülkiyet,
+ mülk için bir deger saglayan bir ifadenin ardindan, iki nokta üst üste tarafindan izlenen bir ad 
+olarak yazilir. Bosluklar ve satir sonlari önemli degildir. Bir nesne birden fazla satir içerdiginde, 
+önceki örnekteki gibi girintilendirilebilirlik okunabilirligi artirir. Isimleri geçerli olmayan degisken 
+adlari veya geçerli sayilari olan esyalar alintilanmalidir.
 var descriptions = {
   work: "Went to work",
   "touched tree": "Touched a tree"
 };
-Bu, kivrik ayraçlarin JavaScript'te iki anlami oldugu anlamina gelir. Bir bildiri baslangicinda, bir dizi ifade baslatiyorlar. Baska herhangi bir pozisyonda, bir nesneyi tanimlarlar. Neyse ki, kivircik bir parantez nesnesi ile bir bildirime baslamak yararli degildir ve tipik programlarda bu iki kullanim arasinda belirsizlik yoktur.
-Var olmayan bir mülkün okunmasi, önceki örnekteki kurt özelliklerini ilk okumaya çalistigimizda, undefined degerini üretecektir.
-Bir özellik ifadesine = operatörü ile bir deger atamak mümkündür. Bu, mülkün degerinin zaten var olmasi durumunda yerini alacak veya nesneye yeni bir mülk yaratmazsa degistirecektir.
-Degisken ciltlemelerle ilgili hâkim modelimize kisaca geri dönmek için mülk baglari benzerdir. Degerleri kavrarlar, ancak diger degiskenler ve özellikler bu ayni degerleri tutabilir. Nesneleri, üzerinde her biri üzerinde yazili bir isim bulunan herhangi bir sayida dokunaç bulunan bir ahtapot olarak düsünebilirsiniz.
-Silme operatörü, böyle bir ahtapottan bir dokuyu keser. Bir özellik erisim ifadesine uygulandiginda, adlandirilmis özelligi nesneden kaldiracak tekli bir isleçtir. Bu ortak bir sey degil, ama mümkün.
+Bu, kivrik ayraçlarin JavaScript'te iki anlami oldugu anlamina gelir. Bir bildiri baslangicinda, bir dizi
+ ifade baslatiyorlar. Baska herhangi bir pozisyonda, bir nesneyi tanimlarlar. Neyse ki, kivircik bir parantez
+ nesnesi ile bir bildirime baslamak yararli degildir ve tipik programlarda bu iki kullanim arasinda belirsizlik yoktur.
+Var olmayan bir mülkün okunmasi, önceki örnekteki kurt özelliklerini ilk okumaya çalistigimizda, undefined 
+degerini üretecektir.
+Bir özellik ifadesine = operatörü ile bir deger atamak mümkündür. Bu, mülkün degerinin zaten var olmasi
+ durumunda yerini alacak veya nesneye yeni bir mülk yaratmazsa degistirecektir.
+Degisken ciltlemelerle ilgili hâkim modelimize kisaca geri dönmek için mülk baglari benzerdir. Degerleri kavrarlar,
+ ancak diger degiskenler ve özellikler bu ayni degerleri tutabilir. Nesneleri, üzerinde her biri üzerinde yazili bir
+ isim bulunan herhangi bir sayida dokunaç bulunan bir ahtapot olarak düsünebilirsiniz.
+Silme operatörü, böyle bir ahtapottan bir dokuyu keser. Bir özellik erisim ifadesine uygulandiginda,
+ adlandirilmis özelligi nesneden kaldiracak tekli bir isleçtir. Bu ortak bir sey degil, ama mümkün.
 var anObject = {left: 1, right: 2};
 console.log(anObject.left);
 // ? 1
@@ -93,8 +154,13 @@ console.log("left" in anObject);
 // ? false
 console.log("right" in anObject);
 // ? true
-Bir dizeye ve bir nesneye uygulandiginda ikili isleci, o nesnenin bu özelligi olup olmadigini gösteren bir Boolean degeri döndürür. Bir mülkün tanimsiz olarak ayarlanmasi ve aslinda silinmesi arasindaki fark, ilk durumda özellik hala özelliktir (sadece ilginç bir degere sahip degildir), ikinci durumda mülk artik mevcut degildir ve içinde dönecek false.
-Arraylar, o zaman, seylerin dizilimini depolamak için uzmanlasmis bir nesne türüdür. [1, 2] türünü degerlendirirseniz, bu "nesne" ü üretir. Onlari, uzun kollu düz ahtapotlar olarak görebilirsiniz; tüm kollari sayilariyla etiketlenmis, düzgün bir siradir.
+Bir dizeye ve bir nesneye uygulandiginda ikili isleci, o nesnenin bu özelligi olup olmadigini gösteren bir
+ Boolean degeri döndürür. Bir mülkün tanimsiz olarak ayarlanmasi ve aslinda silinmesi arasindaki fark, ilk
+ durumda özellik hala özelliktir (sadece ilginç bir degere sahip degildir), ikinci durumda mülk artik mevcut degildir
+ ve içinde dönecek false.
+Arraylar, o zaman, seylerin dizilimini depolamak için uzmanlasmis bir nesne türüdür. [1, 2] türünü
+ degerlendirirseniz, bu "nesne" ü üretir. Onlari, uzun kollu düz ahtapotlar olarak görebilirsiniz;
+ tüm kollari sayilariyla etiketlenmis, düzgün bir siradir.
 Böylece Jacques'in günlügünü bir dizi nesne olarak temsil edebiliriz
 var journal = [
   {events: ["work", "touched tree", "pizza",
@@ -110,9 +176,15 @@ var journal = [
 ];
 mutability
 Yakinda gerçek programlamaya ulasacagiz. Ama önce, anlamak için son teori var.
-Nesne degerlerinin degistirilebilecegini gördük. Önceki bölümlerde tartisilan degerler, örnegin sayilar, dizeler ve Boolean'lar degismezdir; bu türlerin mevcut bir degerini degistirmek imkansizdir. Bunlari birlestirebilir ve onlardan yeni degerler elde edebilirsiniz, ancak belirli bir dize degeri aldiginizda, bu deger her zaman ayni kalacaktir. Içindeki metin degistirilemez. "Kedi" içeren bir dizeye basvuru varsa, diger kodun "siçan" büyü yapmak için bu dizedeki bir karakteri degistirmek mümkün degildir.
+Nesne degerlerinin degistirilebilecegini gördük. Önceki bölümlerde tartisilan degerler, örnegin sayilar, 
+dizeler ve Boolean'lar degismezdir; bu türlerin mevcut bir degerini degistirmek imkansizdir.
+ Bunlari birlestirebilir ve onlardan yeni degerler elde edebilirsiniz, ancak belirli bir dize degeri aldiginizda, 
+bu deger her zaman ayni kalacaktir. Içindeki metin degistirilemez. "Kedi" içeren bir dizeye basvuru varsa, 
+diger kodun "siçan" büyü yapmak için bu dizedeki bir karakteri degistirmek mümkün degildir.
 Öte yandan nesnelerle bir deger içerigi özelliklerini degistirerek degistirilebilir.
-Iki sayiya, 120 ve 120'ye sahip oldugumuzda, ayni fiziksel bitleri belirtip ifade etmemelerine bakilmaksizin, tam olarak ayni sayiyi düsünebiliriz. Ancak nesnelerle, ayni nesneye iki basvuru yapmanin ve ayni özellikleri içeren iki farkli nesneye sahip olmasi arasinda bir fark vardir. Asagidaki kodu göz önünde bulundurun:
+Iki sayiya, 120 ve 120'ye sahip oldugumuzda, ayni fiziksel bitleri belirtip ifade etmemelerine bakilmaksizin,
+ tam olarak ayni sayiyi düsünebiliriz. Ancak nesnelerle, ayni nesneye iki basvuru yapmanin ve ayni özellikleri
+ içeren iki farkli nesneye sahip olmasi arasinda bir fark vardir. Asagidaki kodu göz önünde bulundurun:
 var object1 = {value: 10};
 var object2 = object1;
 var object3 = {value: 10};
@@ -127,8 +199,13 @@ console.log(object2.value);
 // ? 15
 console.log(object3.value);
 // ? 10
-Object1 ve object2 degiskenleri ayni nesneyi kavrar, bu nedenle object1 degisirken object2 degerini de degistirir. Degisken object3, baslangiçta object1 ile ayni özellikleri içeren farkli bir nesneyi isaret eder, ancak ayri bir ömür yasar.
-JavaScript'in == isleci, nesneleri karsilastirirken yalnizca her iki nesne de ayni degere sahipse true degerini döndürür. Farkli nesneleri karsilastirmak, ayni içerige sahip olsa bile yanlis döndürür. JavaScript'in içine yerlestirilen, nesnenin içerigine bakan "derin" bir karsilastirma islemi yoktur ancak kendiniz yazmak da mümkündür (bu bölümün sonundaki alistirmalardan biri olacaktir).
+Object1 ve object2 degiskenleri ayni nesneyi kavrar, bu nedenle object1 degisirken object2 degerini de degistirir.
+ Degisken object3, baslangiçta object1 ile ayni özellikleri içeren farkli bir nesneyi isaret eder, ancak ayri bir 
+ömür yasar.
+JavaScript'in == isleci, nesneleri karsilastirirken yalnizca her iki nesne de ayni degere sahipse true degerini
+ döndürür. Farkli nesneleri karsilastirmak, ayni içerige sahip olsa bile yanlis döndürür. JavaScript'in içine
+ yerlestirilen, nesnenin içerigine bakan "derin" bir karsilastirma islemi yoktur ancak kendiniz yazmak da mümkündür
+ (bu bölümün sonundaki alistirmalardan biri olacaktir).
 Lycanthrope'un günlügü
 Böylece Jacques JavaScript tercümanini çalistirir ve günlügünü tutmak için ihtiyaç duydugu ortami olusturur.
 var journal = [];
@@ -148,19 +225,37 @@ addEntry(["weekend", "cycling", "break", "peanuts",
           "beer"], true);
 
 
-Yeterli veri noktasina ulastiginda, sihirbazligi ile günün her olayi arasindaki iliskiyi hesaplamayi ve bu bagintilardan yararli bir sey ögrenmeyi düsünüyor.
-Korelasyon, degiskenler arasindaki bagimliligin bir ölçüsüdür (istatistiksel anlamda "degiskenler", JavaScript'in anlami degil). Genellikle -1 ile 1 arasinda degisen bir katsayi olarak ifade edilir. Sifir korelasyon, degiskenlerin birbiriyle iliskili olmadigi anlamina gelir; buna karsilik birinin korelasyonu, ikisinin birbiriyle mükemmel bir sekilde iliskili oldugunu gösterir; eger birini biliyorsaniz digerini de biliyorsunuz. Olumsuz bir de, degiskenlerin birbirleriyle tamamen iliskili oldugu, ancak karsit olduklari anlamina gelir; biri dogruysa, digeri de yanlis olur.
-Ikili (Boolean) degiskenler için, phi katsayisi (f) iyi bir korelasyon ölçütü saglar ve hesaplanmasi nispeten kolaydir. F'yi hesaplamak için, iki degiskenin çesitli kombinasyonlarinin kaç defa gözlemlendigini içeren bir tablo n'ye ihtiyacimiz var. Örnegin, pizza yeme olayini alip su sekilde bir tabloya koyabiliriz:
+Yeterli veri noktasina ulastiginda, sihirbazligi ile günün her olayi arasindaki iliskiyi hesaplamayi ve bu 
+bagintilardan yararli bir sey ögrenmeyi düsünüyor.
+Korelasyon, degiskenler arasindaki bagimliligin bir ölçüsüdür (istatistiksel anlamda "degiskenler", JavaScript'in
+ anlami degil). Genellikle -1 ile 1 arasinda degisen bir katsayi olarak ifade edilir. Sifir korelasyon,
+ degiskenlerin birbiriyle iliskili olmadigi anlamina gelir; buna karsilik birinin korelasyonu, ikisinin 
+birbiriyle mükemmel bir sekilde iliskili oldugunu gösterir; eger birini biliyorsaniz digerini de biliyorsunuz.
+ Olumsuz bir de, degiskenlerin birbirleriyle tamamen iliskili oldugu, ancak karsit olduklari anlamina gelir;
+ biri dogruysa, digeri de yanlis olur.
+Ikili (Boolean) degiskenler için, phi katsayisi (f) iyi bir korelasyon ölçütü saglar ve hesaplanmasi
+ nispeten kolaydir. F'yi hesaplamak için, iki degiskenin çesitli kombinasyonlarinin kaç defa gözlemlendigini 
+içeren bir tablo n'ye ihtiyacimiz var. Örnegin, pizza yeme olayini alip su sekilde bir tabloya koyabiliriz:
 f asagidaki formül kullanilarak hesaplanabilir, burada n tabloya isaret eder:
 ? =
 n11n00 - n10n01
 v n1•n0•n•1n•0 
 v n1 • n0 • n • 1n • 0
-N01 ifadesi, birinci degiskenin (sincaplik) yanlis (0) ve ikinci degiskende (pizza) dogru oldugu (1) ölçülerin sayisini belirtir. Bu örnekte, n01 9'dur.
-N1 degeri, ilk degiskenin dogru oldugu yerdeki tüm ölçümlerin toplamini belirtir; bu, örnek tabloda 5'dir. Benzer sekilde, n • 0 ikinci degiskenin yanlis oldugu ölçümlerin toplamini ifade eder.
-Yani pizza masasi için bölme çizgisinin üst kismi (temettü) 1 × 76 - 4 × 9 = 40 olur ve altindaki bölüm (bölen) 5 × 85 × 10 × 80 karekök olur veya v340000. Bu, küçük, f ˜ 0.069 olarak çikiyor. Pizza yeme dönüsümler üzerinde etkisi gibi görünmüyor.
+N01 ifadesi, birinci degiskenin (sincaplik) yanlis (0) ve ikinci degiskende (pizza) dogru oldugu (1) ölçülerin
+ sayisini belirtir. Bu örnekte, n01 9'dur.
+N1 degeri, ilk degiskenin dogru oldugu yerdeki tüm ölçümlerin toplamini belirtir; bu, örnek tabloda 5'dir.
+ Benzer sekilde, n • 0 ikinci degiskenin yanlis oldugu ölçümlerin toplamini ifade eder.
+Yani pizza masasi için bölme çizgisinin üst kismi (temettü) 1 × 76 - 4 × 9 = 40 olur ve altindaki bölüm 
+(bölen) 5 × 85 × 10 × 80 karekök olur veya v340000. Bu, küçük, f ˜ 0.069 olarak çikiyor. Pizza yeme dönüsümler
+ üzerinde etkisi gibi görünmüyor.
 Hesaplama korelasyonu
-Dört elemanli bir diziyle ([76, 9, 4, 1]) JavaScript'te iki-iki tabloyu temsil edebiliriz. Iki iki ögeli diziyi ([[76, 9], [4, 1]] içeren bir dizi veya "11" ve "01" gibi özellik adlarina sahip bir nesne gibi baska temsilleri de kullanabiliriz, ancak düz dizi basittir ve masaya erisen ifadeleri hos bir sekilde kisaltir. Dize olan dizileri, en soldaki (en önemli) rakamin sincap degiskenine, en sagdaki (en az anlamli) rakamin olay degiskenine atif yaptigi iki bitlik ikili sayi olarak yorumlayacagiz. Örnegin, ikili sayi 10, Jacques'in bir sincap haline dönüstügü duruma karsilik, olay ("pizza" diyelim) gerçeklesmedi. Bu dört kez oldu. Ve ikili 10 ondalik gösterimde 2 oldugundan, bu sayi dizinin dizin 2'sinde saklanacaktir.
+Dört elemanli bir diziyle ([76, 9, 4, 1]) JavaScript'te iki-iki tabloyu temsil edebiliriz. Iki iki ögeli 
+diziyi ([[76, 9], [4, 1]] içeren bir dizi veya "11" ve "01" gibi özellik adlarina sahip bir nesne gibi baska
+ temsilleri de kullanabiliriz, ancak düz dizi basittir ve masaya erisen ifadeleri hos bir sekilde kisaltir. 
+Dize olan dizileri, en soldaki (en önemli) rakamin sincap degiskenine, en sagdaki (en az anlamli)
+ rakamin olay degiskenine atif yaptigi iki bitlik ikili sayi olarak yorumlayacagiz. Örnegin, ikili sayi 10,
+ Jacques'in bir sincap haline dönüstügü duruma karsilik, olay ("pizza" diyelim) gerçeklesmedi.
+ Bu dört kez oldu. Ve ikili 10 ondalik gösterimde 2 oldugundan, bu sayi dizinin dizin 2'sinde saklanacaktir.
 Bu, böyle bir diziden f katsayisini hesaplayan islevdir:
 function phi(table) {
   return (table[3] * table[0] - table[2] * table[1]) /
@@ -172,9 +267,13 @@ function phi(table) {
 
 console.log(phi([76, 9, 4, 1]));
 // ? 0.068599434
-Bu basitçe f formülünün JavaScript'e direk bir çevirisidir. Math.sqrt, standart JavaScript ortaminda Math nesnesi tarafindan saglanan karekök islevdir. Tablodan iki alani toplamak için n1 gibi alanlar toplamaliyiz: çünkü satir veya sütunlarin toplamlari dogrudan veri yapisinda saklanmaz.
-Jacques gazetesini üç ay boyunca tuttu. Ortaya çikan veri kümesi, bu bölüm için kodlama sanal alaninda, burada JOURNAL degiskeninde saklanir ve indirilebilir bir dosyada bulunur.
-Bu günlükten belirli bir olay için iki-iki tabloyu çikarmak için, tüm girdileri tekrar etmeliyiz ve sincap dönüsümleriyle iliskili olarak olayin kaç kez çiktigini toplamalisiniz.
+Bu basitçe f formülünün JavaScript'e direk bir çevirisidir. Math.sqrt, standart JavaScript ortaminda Math 
+nesnesi tarafindan saglanan karekök islevdir. Tablodan iki alani toplamak için n1 gibi alanlar toplamaliyiz: 
+çünkü satir veya sütunlarin toplamlari dogrudan veri yapisinda saklanmaz.
+Jacques gazetesini üç ay boyunca tuttu. Ortaya çikan veri kümesi, bu bölüm için kodlama sanal alaninda,
+ burada JOURNAL degiskeninde saklanir ve indirilebilir bir dosyada bulunur.
+Bu günlükten belirli bir olay için iki-iki tabloyu çikarmak için, tüm girdileri tekrar etmeliyiz ve sincap
+ dönüsümleriyle iliskili olarak olayin kaç kez çiktigini toplamalisiniz.
 function hasEvent(event, entry) {
   return entry.events.indexOf(event) != -1;
 }
@@ -192,12 +291,23 @@ function tableFor(event, journal) {
 
 console.log(tableFor("pizza", JOURNAL));
 // ? [76, 9, 4, 1]
-HasEvent islevi, bir girdinin belirli bir olay içerdigini test eder. Diziler, dizideki belirli bir degeri (bu örnekte olay adi) bulmayi deneyen ve bulunamadigi dizini veya bulunmazsa -1 degerini döndüren bir indexOf yöntemine sahiptir. Yani, indexOf çagrisi -1 döndürmezse, olayin girisinde oldugunu biliyoruz.
-Tablodaki döngünün gövdesi, girdinin ilgi duydugu belirli olayi içerdigini ve olayin bir sincap olayiyla birlikte olup olmadigini kontrol ederek, tablodaki kutunun her bir günlük girisi içine girdigini belirtir. Döngü, daha sonra, tablodaki bu kutuya karsilik gelen dizideki sayiya bir tane ekler.
-Bireysel bagintilari hesaplamamiz gereken araçlara sahibiz. Kalan tek adim, kaydedilen olaylarin her türü için bir korelasyon bulmak ve herhangi bir seyin öne çikip çikmadigini görmektir. Ancak, bu korelasyonlari hesapladiktan sonra nasil depolamaliyiz?
+HasEvent islevi, bir girdinin belirli bir olay içerdigini test eder. Diziler, dizideki belirli bir degeri 
+(bu örnekte olay adi) bulmayi deneyen ve bulunamadigi dizini veya bulunmazsa -1 degerini döndüren bir indexOf
+ yöntemine sahiptir. Yani, indexOf çagrisi -1 döndürmezse, olayin girisinde oldugunu biliyoruz.
+Tablodaki döngünün gövdesi, girdinin ilgi duydugu belirli olayi içerdigini ve olayin bir sincap olayiyla birlikte
+ olup olmadigini kontrol ederek, tablodaki kutunun her bir günlük girisi içine girdigini belirtir. Döngü, daha sonra
+, tablodaki bu kutuya karsilik gelen dizideki sayiya bir tane ekler.
+Bireysel bagintilari hesaplamamiz gereken araçlara sahibiz. Kalan tek adim, kaydedilen olaylarin her türü için bir 
+korelasyon bulmak ve herhangi bir seyin öne çikip çikmadigini görmektir. Ancak, bu korelasyonlari hesapladiktan
+ sonra nasil depolamaliyiz?
 Haritalar olarak nesneler
-Olasi bir yol, isim ve deger özellikli nesneleri kullanarak tüm korelasyonlari bir dizinde saklamaktir. Ancak belirli bir olay için korelasyon aramaya biraz hantal yapar: dogru adla nesneyi bulmak için tüm dizinin üzerinde döngü gerekir. Bu arama islemini bir isleve sarabiliriz, ancak yine de daha fazla kod yazariz ve bilgisayar gerekenden daha fazla is yapiyor olurdu.
-Daha iyi bir yol, olay türlerinden sonra isimlendirilen nesne özelliklerini kullanmaktir. Özellikleri olusturmak ve okumak için köseli ayraç erisim gösterimini kullanabiliriz ve verilen bir mülkün var olup olmadigini test etmek için in operatörünü kullanabilirsiniz.
+Olasi bir yol, isim ve deger özellikli nesneleri kullanarak tüm korelasyonlari bir dizinde saklamaktir. Ancak belirli 
+bir olay için korelasyon aramaya biraz hantal yapar: dogru adla nesneyi bulmak için tüm dizinin üzerinde döngü gerekir.
+ Bu arama islemini bir isleve sarabiliriz, ancak yine de daha fazla kod yazariz ve bilgisayar gerekenden daha fazla is
+ yapiyor olurdu.
+Daha iyi bir yol, olay türlerinden sonra isimlendirilen nesne özelliklerini kullanmaktir. Özellikleri olusturmak ve
+ okumak için köseli ayraç erisim gösterimini kullanabiliriz ve verilen bir mülkün var olup olmadigini test etmek için
+ in operatörünü kullanabilirsiniz.
 var map = {};
 function storePhi(event, phi) {
   map[event] = phi;
@@ -209,16 +319,23 @@ console.log("pizza" in map);
 // ? true
 console.log(map["touched tree"]);
 // ? -0.081
-Harita, bir alandaki (bu durumda olay isimleri) degerlerden baska bir alandaki karsilik gelen degerlere (bu durumda f katsayilari) gitmek için bir yoldur.
-Bunun gibi nesneleri kullanma konusunda Bölüm 6'da tartisacagimiz birkaç olasi sorun var, ancak su an için bunlar hakkinda endiselenmeyecegiz.
-Katsayisini kaydettigimiz tüm olaylari bulmak istiyorsak ne olacak? Özellikler bir dizide oldugu gibi öngörülebilir bir dizi olusturmaz, bu nedenle normal bir döngü kullanamazsiniz. JavaScript, bir nesnenin özelliklerini incelemek için özel olarak bir döngü yapisi saglar. Biraz döngü için normal gibi görünüyor, ancak içinde bulunan kelimenin kullanimi ile kendisini ayirt ediyor.
+Harita, bir alandaki (bu durumda olay isimleri) degerlerden baska bir alandaki karsilik gelen degerlere
+ (bu durumda f katsayilari) gitmek için bir yoldur.
+Bunun gibi nesneleri kullanma konusunda Bölüm 6'da tartisacagimiz birkaç olasi sorun var, ancak su an için bunlar
+ hakkinda endiselenmeyecegiz.
+Katsayisini kaydettigimiz tüm olaylari bulmak istiyorsak ne olacak? Özellikler bir dizide oldugu gibi öngörülebilir
+ bir dizi olusturmaz, bu nedenle normal bir döngü kullanamazsiniz. JavaScript, bir nesnenin özelliklerini incelemek 
+için özel olarak bir döngü yapisi saglar. Biraz döngü için normal gibi görünüyor, ancak içinde bulunan kelimenin
+ kullanimi ile kendisini ayirt ediyor.
 for (var event in map)
   console.log("The correlation for '" + event +
               "' is " + map[event]);
 // ? The correlation for 'pizza' is 0.069
 // ? The correlation for 'touched tree' is -0.081
 Nihai(finish) analiz
-Veri kümesinde bulunan tüm olay türlerini bulmak için, sirayla her girisi isler ve ardindan o giristeki olaylarin üzerine döneriz. Simdiye kadar gördügümüz tüm olay türleri için korelasyon katsayilarina sahip bir nesne phisi tutuyoruz. Phis nesnesindeki bir türünü her çalistirdigimizda, onun korelasyonunu hesaplar ve nesneye ekleriz.
+Veri kümesinde bulunan tüm olay türlerini bulmak için, sirayla her girisi isler ve ardindan o giristeki olaylarin
+ üzerine döneriz. Simdiye kadar gördügümüz tüm olay türleri için korelasyon katsayilarina sahip bir nesne phisi
+ tutuyoruz. Phis nesnesindeki bir türünü her çalistirdigimizda, onun korelasyonunu hesaplar ve nesneye ekleriz.
 function gatherCorrelations(journal) {
   var phis = {};
   for (var entry = 0; entry < journal.length; entry++) {
@@ -244,7 +361,9 @@ for (var event in correlations)
 // ? bread:   -0.0757554019
 // ? pudding: -0.0648203724
 // and so on...
-?n korrelyasiya sifira yaxindir. Yerkökü, çör?k v? ya puding yem?k sincik-lycanthropy tetiklemez görünür. Bununla bel?, h?ft? sonlari bir az daha tez-tez bas ver? bil?r. Yalniz 0.1-d?n az v? ya -0.1-d?n az olan göst?ricil?ri göst?rm?k üçün n?tic?l?ri filtreleyelim.
+?n korrelyasiya sifira yaxindir. Yerkökü, çör?k v? ya puding yem?k sincik-lycanthropy tetiklemez görünür. 
+Bununla bel?, h?ft? sonlari bir az daha tez-tez bas ver? bil?r. Yalniz 0.1-d?n az v? ya -0.1-d?n az olan
+ göst?ricil?ri göst?rm?k üçün n?tic?l?ri filtreleyelim.
 for (var event in correlations) {
   var correlation = correlations[event];
   if (correlation > 0.1 || correlation < -0.1)
@@ -257,7 +376,8 @@ for (var event in correlations) {
 // ? spaghetti:      0.2425356250
 // ? reading:        0.1106828054
 // ? peanuts:        0.5902679812
-Aha! Iliskisi digerlerinden açikça daha güçlü olan iki faktör vardir. Yer fistigi yemesi bir sincapa dönüsme ihtimalini kuvvetli bir sekilde etkiliyor, oysa dis firçalama önemli derecede olumsuz etkiliyor.
+Aha! Iliskisi digerlerinden açikça daha güçlü olan iki faktör vardir. Yer fistigi yemesi bir sincapa
+ dönüsme ihtimalini kuvvetli bir sekilde etkiliyor, oysa dis firçalama önemli derecede olumsuz etkiliyor.
 Ilginç. Bir seyler deneyelim.
 for (var i = 0; i < JOURNAL.length; i++) {
   var entry = JOURNAL[i];
@@ -267,12 +387,18 @@ for (var i = 0; i < JOURNAL.length; i++) {
 }
 console.log(phi(tableFor("peanut teeth", JOURNAL)));
 // ? 1
-Bu açikça görülüyor! Bu fenomen, Jacques fistik yediginde ve dislerini firçalamada tam olarak ortaya çikar. Dishekimligi hijyeni konusunda sadece o kadar çabalamasa bile, onun acisini fark etmemisti.
+Bu açikça görülüyor! Bu fenomen, Jacques fistik yediginde ve dislerini firçalamada tam olarak ortaya çikar. 
+Dishekimligi hijyeni konusunda sadece o kadar çabalamasa bile, onun acisini fark etmemisti.
 Bunu bilen Jacques fistiklari tamamen tüketmeyi birakir ve bunun tamamen dönüsümlerine son verdigini bulur.
-Her sey Jacques ile bir süre iyi geçti. Ancak birkaç yil sonra isini kaybeder ve nihayetinde her gösteri öncesinde agzina fistik ezmesi doldurarak Inanilmaz Sincap Adam olarak gösterdigi bir sirkle çalismaya zorlanir. Bir gün, bu zavalli varligindan bikmis olan Jacques, sirk çadirindaki bir çatlaktan atladi ve ormanda kayboldu. Daha önce hiç görmedi.
+Her sey Jacques ile bir süre iyi geçti. Ancak birkaç yil sonra isini kaybeder ve nihayetinde her gösteri
+ öncesinde agzina fistik ezmesi doldurarak Inanilmaz Sincap Adam olarak gösterdigi bir sirkle çalismaya zorlanir.
+ Bir gün, bu zavalli varligindan bikmis olan Jacques, sirk çadirindaki bir çatlaktan atladi ve ormanda kayboldu.
+ Daha önce hiç görmedi.
 Daha fazla dizioloji
-Bu bölümü bitirmeden önce size birkaç nesne ile ilgili yeni kavrami tanitmak istiyorum. Genellikle yararli dizi yöntemleri tanitan baslayacagiz.
-Bu bölümün basinda, bir dizinin sonundaki elemanlari ekleyip çikaran push ve pop ögelerini gördük. Bir dizinin baslangicindaki seyleri ekleme ve çikarmaya karsilik gelen yöntemlere unshift ve shift denir.
+Bu bölümü bitirmeden önce size birkaç nesne ile ilgili yeni kavrami tanitmak istiyorum. Genellikle yararli
+ dizi yöntemleri tanitan baslayacagiz.
+Bu bölümün basinda, bir dizinin sonundaki elemanlari ekleyip çikaran push ve pop ögelerini gördük. Bir 
+dizinin baslangicindaki seyleri ekleme ve çikarmaya karsilik gelen yöntemlere unshift ve shift denir.
 var todoList = [];
 function rememberTo(task) {
   todoList.push(task);
@@ -283,20 +409,29 @@ function whatIsNext() {
 function urgentlyRememberTo(task) {
   todoList.unshift(task);
 }
-Önceki program görev listelerini yönetir. RememberTo ("eat") islevini çagirarak listenin sonuna görevler eklersiniz ve bir seyler yapmaya hazir oldugunuzda, ön ögeyi listeden almak (ve kaldirmak için) whatIsNext () ögesini çagirirsiniz. UrgentlyRememberTo islevi ayni zamanda bir görev ekler, ancak listenin arkasina degil de öne ekler.
-IndexOf yönteminde, lastIndexOf adli bir kardes bulunur; bu, belirtilen ögeyi ön yerine dizinin sonunda aramaya baslar.
+Önceki program görev listelerini yönetir. RememberTo ("eat") islevini çagirarak listenin sonuna görevler 
+eklersiniz ve bir seyler yapmaya hazir oldugunuzda, ön ögeyi listeden almak (ve kaldirmak için) 
+whatIsNext () ögesini çagirirsiniz. UrgentlyRememberTo islevi ayni zamanda bir görev ekler, ancak listenin
+ arkasina degil de öne ekler.
+IndexOf yönteminde, lastIndexOf adli bir kardes bulunur; bu, belirtilen ögeyi ön yerine dizinin sonunda
+ aramaya baslar.
 console.log([1, 2, 3, 2, 1].indexOf(2));
 // ? 1
 console.log([1, 2, 3, 2, 1].lastIndexOf(2));
 // ? 3
-Hem indexOf hem de lastIndexOf, aramayi nereden baslatacaginizi gösteren istege bagli bir ikinci bagimsiz degiskeni alir.
-Baska bir temel yöntem, bir baslangiç indeksi ve bir bitis dizini alan ve bu indeksler arasinda yalnizca elemanlari bulunan bir dizi döndüren dilimdir. Baslangiç endeksi kapsayicidir, bitis endeksi haricidir.
+Hem indexOf hem de lastIndexOf, aramayi nereden baslatacaginizi gösteren istege bagli bir ikinci
+ bagimsiz degiskeni alir.
+Baska bir temel yöntem, bir baslangiç indeksi ve bir bitis dizini alan ve bu indeksler arasinda 
+yalnizca elemanlari bulunan bir dizi döndüren dilimdir. Baslangiç endeksi kapsayicidir, bitis endeksi haricidir.
 console.log([0, 1, 2, 3, 4].slice(2, 4));
 // ? [2, 3]
 console.log([0, 1, 2, 3, 4].slice(2));
 // ? [2, 3, 4]
-Bitis dizini belirtilmediginde, dilim baslangiç indeksinden sonra tüm ögeleri alir. Dizelerin de benzer bir etkiye sahip olan bir dilim yöntemi vardir.
-Concat yöntemi, diziler için + operatörünün yaptigi gibi, dizileri birbirine tutturmak için kullanilabilir. Asagidaki örnek, hem concat hem de dilimi etkin olarak göstermektedir. Bir diziyi ve bir dizini alir ve belirtilen dizindeki kaldirilan ögeyle orijinal dizinin bir kopyasi olan yeni bir dizi döndürür.
+Bitis dizini belirtilmediginde, dilim baslangiç indeksinden sonra tüm ögeleri alir. Dizelerin de 
+benzer bir etkiye sahip olan bir dilim yöntemi vardir.
+Concat yöntemi, diziler için + operatörünün yaptigi gibi, dizileri birbirine tutturmak için kullanilabilir.
+ Asagidaki örnek, hem concat hem de dilimi etkin olarak göstermektedir. Bir diziyi ve bir dizini alir ve
+ belirtilen dizindeki kaldirilan ögeyle orijinal dizinin bir kopyasi olan yeni bir dizi döndürür.
 function remove(array, index) {
   return array.slice(0, index)
     .concat(array.slice(index + 1));
@@ -304,24 +439,31 @@ function remove(array, index) {
 console.log(remove(["a", "b", "c", "d", "e"], 2));
 // ? ["a", "b", "d", "e"]
 Teller ve özellikleri
-Dize degerlerinden length ve toUpperCase gibi özellikleri okuyabiliriz. Ancak yeni bir mülk eklemeyi denerseniz, sopa olmaz.
+Dize degerlerinden length ve toUpperCase gibi özellikleri okuyabiliriz. Ancak yeni bir mülk eklemeyi denerseniz,
+ sopa olmaz.
 var myString = "Fido";
 myString.myProperty = "value";
 console.log(myString.myProperty);
 // ? undefined
-Dize, sayi ve Boolean türü degerler nesneler degildir ve dil üzerinde yeni özellikler ayarlamaya çalisirsaniz sikayet etmez, ancak bu özellikler aslinda bu özellikleri saklamaz. Degerler degistirilemez ve degistirilemezler.
-Ancak bu türlerin bazi yerlesik özellikleri var. Her dize degeri bir dizi yöntem içerir. En yararli olanlar belki de dilim ve indexOf'dur, bu ayni adin dizi yöntemlerine benzemektedir.
+Dize, sayi ve Boolean türü degerler nesneler degildir ve dil üzerinde yeni özellikler ayarlamaya çalisirsaniz
+ sikayet etmez, ancak bu özellikler aslinda bu özellikleri saklamaz. Degerler degistirilemez ve degistirilemezler.
+Ancak bu türlerin bazi yerlesik özellikleri var. Her dize degeri bir dizi yöntem içerir. En yararli olanlar belki
+ de dilim ve indexOf'dur, bu ayni adin dizi yöntemlerine benzemektedir.
 console.log("coconuts".slice(4, 7));
 // ? nut
 console.log("coconut".indexOf("u"));
 // ? 5
-Bir fark indexOf dizesi, birden fazla karakter içeren bir dize alabilirken, karsilik gelen dizi yöntemi yalnizca tek bir öge arar
+Bir fark indexOf dizesi, birden fazla karakter içeren bir dize alabilirken, karsilik gelen dizi yöntemi
+ yalnizca tek bir öge arar
 console.log("one two three".indexOf("ee"));
 // ? 11
-Döseme yöntemi bosluklari (bosluklar, yeni satirlar, sekme ve benzeri karakterler) bir dizenin baslangicindan ve sonundan kaldirir.
+Döseme yöntemi bosluklari (bosluklar, yeni satirlar, sekme ve benzeri karakterler) bir dizenin baslangicindan
+ ve sonundan kaldirir.
 console.log("  okay \n ".trim());
 // ? okay
-Dize türünün length özelligini daha önce gördük. Bir dizedeki tek tek karakterlere erismek, charAt yöntemiyle yapilabilir, ayni zamanda bir dizi için yapacaginiz gibi yalnizca sayisal özellikleri de okumakla yapilabilir.
+Dize türünün length özelligini daha önce gördük. Bir dizedeki tek tek karakterlere erismek, charAt
+ yöntemiyle yapilabilir, ayni zamanda bir dizi için yapacaginiz gibi yalnizca sayisal özellikleri de
+ okumakla yapilabilir.
 var string = "abc";
 console.log(string.length);
 // ? 3
@@ -330,19 +472,26 @@ console.log(string.charAt(0));
 console.log(string[1]);
 // ? b
 Arguments nesnesi
-Bir islev çagrildiginda, argüman adinda özel bir degisken, islev gövdesinin bulundugu ortama eklenir. Bu degisken, isleve aktarilan tüm bagimsiz degiskenleri tutan bir nesneye karsilik gelir. JavaScript'te, bir isleve, kendisinin bildirdigi parametrelerden daha fazla (veya daha az) bagimsiz degiskeni iletmesine izin verildigini unutmayin.
+Bir islev çagrildiginda, argüman adinda özel bir degisken, islev gövdesinin bulundugu ortama eklenir.
+ Bu degisken, isleve aktarilan tüm bagimsiz degiskenleri tutan bir nesneye karsilik gelir. JavaScript'te,
+ bir isleve, kendisinin bildirdigi parametrelerden daha fazla (veya daha az) bagimsiz degiskeni iletmesine 
+izin verildigini unutmayin.
 function noArguments() {}
 noArguments(1, 2, 3); // This is okay
 function threeArguments(a, b, c) {}
 threeArguments(); // And so is this
-Arguments nesnesinin, isleve gerçekten iletilen bagimsiz degisken sayisini belirten bir length özelligi vardir. Ayrica, 0, 1, 2 ve benzeri adli her bagimsiz degisken için bir özellik vardir.
-Bu sana bir dizi gibi geliyorsa, haklisin, bir dizi gibi. Ancak bu nesne ne yazik ki herhangi bir dizi yöntemi içermiyor (dilim veya indexOf gibi), bu nedenle gerçek bir diziden biraz daha zor
+Arguments nesnesinin, isleve gerçekten iletilen bagimsiz degisken sayisini belirten bir length özelligi vardir.
+ Ayrica, 0, 1, 2 ve benzeri adli her bagimsiz degisken için bir özellik vardir.
+Bu sana bir dizi gibi geliyorsa, haklisin, bir dizi gibi. Ancak bu nesne ne yazik ki herhangi bir dizi yöntemi 
+içermiyor (dilim veya indexOf gibi), bu nedenle gerçek bir diziden biraz daha zor
 function argumentCounter() {
   console.log("You gave me", arguments.length, "arguments.");
 }
 argumentCounter("Straw man", "Tautology", "Ad hominem");
 // ? You gave me 3 arguments.
-Bazi islevler, console.log gibi herhangi bir sayida bagimsiz degiskeni alabilir. Bunlar genellikle degisken nesnesinin degerleri üzerinde döngü. Çok hos arayüzler olusturmak için kullanilabilirler. Örnegin, girdileri Jacques'in günlügüne nasil olusturdugumuzu hatirlayin.
+Bazi islevler, console.log gibi herhangi bir sayida bagimsiz degiskeni alabilir. Bunlar genellikle degisken
+ nesnesinin degerleri üzerinde döngü. Çok hos arayüzler olusturmak için kullanilabilirler.
+ Örnegin, girdileri Jacques'in günlügüne nasil olusturdugumuzu hatirlayin.
 addEntry(["work", "touched tree", "pizza", "running",
           "television"], false);
 Bu islevi çok çagiracagi için aramasi daha kolay bir alternatif olusturabiliriz.
@@ -354,13 +503,24 @@ function addEntry(squirrel) {
 }
 addEntry(true, "work", "touched tree", "pizza",
          "running", "television");
-Bu sürüm, ilk argümanini (sincap) normal sekilde okur ve argümanlardan geri kalir (döngü, dizin 1'de baslar, ilk atlar) bir diziye toplamak için kullanilir.
+Bu sürüm, ilk argümanini (sincap) normal sekilde okur ve argümanlardan geri kalir 
+(döngü, dizin 1'de baslar, ilk atlar) bir diziye toplamak için kullanilir.
 Matematik nesnesi
-Gördügümüz gibi, Matematik, Math.max (maksimum), Math.min (minimum) ve Math.sqrt (karekök) gibi sayiyla ilgili yardimci islevlerin bir kepçesidir.
-Matematik nesnesi basitçe bir takim ilgili islevleri gruplamak için bir konteyner olarak kullanilir. Sadece bir Matematik nesnesi var ve bir deger olarak neredeyse hiç yarari yok. Daha ziyade, tüm bu islevlerin ve degerlerin genel degisken olmasi gerekmeyecek bir ad alani saglar.
-Çok fazla global degisken olmasi ad alanini "kirletir". Alinan adlar ne kadar fazlaysa, yanlislikla bazi degiskenlerin degerinin üzerine yazma olasiliginiz da o kadar yüksektir. Örnegin, programlarinizdan birinde maksimum bir sey ismi vermek istemeniz olasi degildir. JavaScript'in yerlesik maksimum islevi Math nesnesinde güvenle saklandigindan, üzerine yazmayi düsünmek zorunda degiliz.
-Zaten alinan bir adla bir degiskeni tanimlarken pek çok dil sizi durduracak veya en azindan sizi uyaracaktir. JavaScript de yapmaz, bu yüzden dikkatli ol.
-Matematik nesnesine geri dönün. Trigonometri yapmaniz gerekiyorsa, Matematik yardimci olabilir. Sirasiyla cos (kosinüs), sin (sinüs) ve tan (tanjant) yani sira ters fonksiyonlari, acos, asin ve atan içerir. ? (pi) sayisi veya en azindan bir JavaScript numarasina uyan en yakin yaklasim-Math.PI olarak bulunur. (Sabit degerlerin adlarini büyük harflerle yazmak için eski bir programlama gelenegi var.)
+Gördügümüz gibi, Matematik, Math.max (maksimum), Math.min (minimum) ve Math.sqrt (karekök) gibi sayiyla
+ ilgili yardimci islevlerin bir kepçesidir.
+Matematik nesnesi basitçe bir takim ilgili islevleri gruplamak için bir konteyner olarak kullanilir. 
+Sadece bir Matematik nesnesi var ve bir deger olarak neredeyse hiç yarari yok. Daha ziyade, tüm bu islevlerin
+ ve degerlerin genel degisken olmasi gerekmeyecek bir ad alani saglar.
+Çok fazla global degisken olmasi ad alanini "kirletir". Alinan adlar ne kadar fazlaysa, yanlislikla bazi
+ degiskenlerin degerinin üzerine yazma olasiliginiz da o kadar yüksektir. Örnegin, programlarinizdan birinde
+ maksimum bir sey ismi vermek istemeniz olasi degildir. JavaScript'in yerlesik maksimum islevi Math nesnesinde
+ güvenle saklandigindan, üzerine yazmayi düsünmek zorunda degiliz.
+Zaten alinan bir adla bir degiskeni tanimlarken pek çok dil sizi durduracak veya en azindan sizi uyaracaktir. 
+JavaScript de yapmaz, bu yüzden dikkatli ol.
+Matematik nesnesine geri dönün. Trigonometri yapmaniz gerekiyorsa, Matematik yardimci olabilir. Sirasiyla cos (kosinüs),
+ sin (sinüs) ve tan (tanjant) yani sira ters fonksiyonlari, acos, asin ve atan içerir. ? (pi) sayisi veya
+ en azindan bir JavaScript numarasina uyan en yakin yaklasim-Math.PI olarak bulunur. 
+(Sabit degerlerin adlarini büyük harflerle yazmak için eski bir programlama gelenegi var.)
 function randomPointOnCircle(radius) {
   var angle = Math.random() * 2 * Math.PI;
   return {x: radius * Math.cos(angle),
@@ -368,8 +528,10 @@ function randomPointOnCircle(radius) {
 }
 console.log(randomPointOnCircle(2));
 // ? {x: 0.3667, y: 1.966}
-Eger sinüsler ve kosinüsler çok tanidiginiz bir sey degilse, endiselenmeyin. Bu kitapta 13. Bölüm'de kullanildiklarinda bunlari açiklayacagim.
-Önceki örnek Math.random kullanir. Bu, onu çagirdiginizda sifir (dahil) ile bir (gizli) arasinda yeni bir sahte rasgele sayi döndüren bir islevdir.
+Eger sinüsler ve kosinüsler çok tanidiginiz bir sey degilse, endiselenmeyin. Bu kitapta 13. Bölüm'de
+ kullanildiklarinda bunlari açiklayacagim.
+Önceki örnek Math.random kullanir. Bu, onu çagirdiginizda sifir (dahil) ile bir (gizli) arasinda yeni bir
+ sahte rasgele sayi döndüren bir islevdir.
 console.log(Math.random());
 // ? 0.36993729369714856
 console.log(Math.random());
@@ -377,31 +539,52 @@ console.log(Math.random());
 console.log(Math.random());
 // ? 0.40180766698904335
 
-Bilgisayarlar deterministik makineler olmasina ragmen - ayni girdiyi verdiklerinde daima ayni sekilde tepki verirler - rastgele görünen sayilari üretmelerini saglamak mümkündür. Bunu yapmak için, makine dahili halde bir sayi (veya bir sürü sayi) tutar. Ardindan, rasgele bir sayi talep edildiginde, bu iç durum üzerinde karmasik deterministik hesaplamalar yapar ve bu hesaplamalarin sonucunun bir bölümünü döndürür. Makine ayrica üretilen bir sonraki "rasgele" numaranin farkli olacagi sekilde kendi iç durumunu degistirmek için sonucu kullaniyor.
-Kesirli bir sayi yerine tam bir rasgele sayi istiyorsak, Math.random sonucunda Math.floor (en yakin tam sayiyi yuvarlar) kullanabiliriz.
+Bilgisayarlar deterministik makineler olmasina ragmen - ayni girdiyi verdiklerinde daima ayni sekilde tepki 
+verirler - rastgele görünen sayilari üretmelerini saglamak mümkündür. Bunu yapmak için, makine dahili halde
+ bir sayi (veya bir sürü sayi) tutar. Ardindan, rasgele bir sayi talep edildiginde, bu iç durum üzerinde karmasik
+ deterministik hesaplamalar yapar ve bu hesaplamalarin sonucunun bir bölümünü döndürür. Makine ayrica üretilen bir
+ sonraki "rasgele" numaranin farkli olacagi sekilde kendi iç durumunu degistirmek için sonucu kullaniyor.
+Kesirli bir sayi yerine tam bir rasgele sayi istiyorsak, Math.random sonucunda Math.floor 
+(en yakin tam sayiyi yuvarlar) kullanabiliriz.
 console.log(Math.floor(Math.random() * 10));
 // ? 2
-Rassal sayiyi 10 ile çarpmak bize sifirdan büyük veya esittir ve 10'un altinda bir sayi verir. Math.floor asagiya yuvarlandigindan, bu ifade ayni sansa bagli olarak 0'dan 9'a kadar herhangi bir sayi üretecektir.
+Rassal sayiyi 10 ile çarpmak bize sifirdan büyük veya esittir ve 10'un altinda bir sayi verir.
+ Math.floor asagiya yuvarlandigindan, bu ifade ayni sansa bagli olarak 0'dan 9'a kadar herhangi bir sayi üretecektir.
 Math.ceil (tam sayiya yuvarlanan "tavan" için) ve Math.round (en yakin tam sayiyla) islevleri vardir.
 Küresel nesne
-Küresel degisken, yani küresel degiskenlerin yasadigi alan, JavaScript'te nesne olarak ele alinabilir. Her küresel degisken, bu nesnenin bir özelligi olarak bulunur. Tarayicilarda, genel kapsam nesnesi pencere degiskeninde saklanir.
+Küresel degisken, yani küresel degiskenlerin yasadigi alan, JavaScript'te nesne olarak ele alinabilir. 
+Her küresel degisken, bu nesnenin bir özelligi olarak bulunur. Tarayicilarda, genel kapsam nesnesi pencere
+ degiskeninde saklanir.
 var myVar = 10;
 console.log("myVar" in window);
 // ? true
 console.log(window.myVar);
 // ? 10
 özet
-Nesneler ve diziler (belirli bir tür nesne), çesitli degerleri tek bir degere gruplamanin yollarini saglar. Kavramsal olarak, bu, bir seyleri bir çantaya koyup, kollarimizi tüm bireysel seylerin etrafina sarmaya çalismak ve onlari ayri ayri tutmaya çalismak yerine çanta ile dolasmamiza olanak tanir.
-JavaScript'teki degerlerin çogu özelliklidir, istisnalar bos ve tanimsizdir. Özelliklere value.propName veya value ["propName"] kullanilarak erisilir. Nesneler, mülkleri için adlari kullanma egilimindedir ve bunlar arasinda az çok sabit bir set depolamaktadir. Diziler, diger yandan, genellikle degisen sayida kavramsal olarak ayni degerleri içerir ve sayilarinin (0'dan baslayarak) özelliklerinin adlari olarak kullanilmasini saglar.
-Dizilerde, uzunluk ve bir dizi yöntem gibi bazi adlandirilmis özellikler vardir. Metotlar, mülklerde yasayan ve (genellikle) mülkiyet ettigi degere göre hareket eden fonksiyonlardir.
-Nesneler ayrica degerler ile isimleri iliskilendiren haritalar gibi de kullanilabilir. In operatörü, bir nesnenin belirli bir ada sahip bir mülkü içerdigini bulmak için kullanilabilir. Ayni anahtar kelime, bir nesnenin özelliklerinin üzerinden döngü yapmak için bir for döngüsünde (nesnedeki var name için) kullanilabilir.
+Nesneler ve diziler (belirli bir tür nesne), çesitli degerleri tek bir degere gruplamanin yollarini saglar.
+ Kavramsal olarak, bu, bir seyleri bir çantaya koyup, kollarimizi tüm bireysel seylerin etrafina sarmaya çalismak
+ ve onlari ayri ayri tutmaya çalismak yerine çanta ile dolasmamiza olanak tanir.
+JavaScript'teki degerlerin çogu özelliklidir, istisnalar bos ve tanimsizdir. Özelliklere value.propName veya
+ value ["propName"] kullanilarak erisilir. Nesneler, mülkleri için adlari kullanma egilimindedir ve bunlar
+ arasinda az çok sabit bir set depolamaktadir. Diziler, diger yandan, genellikle degisen sayida kavramsal 
+olarak ayni degerleri içerir ve sayilarinin (0'dan baslayarak) özelliklerinin adlari olarak kullanilmasini saglar.
+Dizilerde, uzunluk ve bir dizi yöntem gibi bazi adlandirilmis özellikler vardir. Metotlar, mülklerde yasayan 
+ve (genellikle) mülkiyet ettigi degere göre hareket eden fonksiyonlardir.
+Nesneler ayrica degerler ile isimleri iliskilendiren haritalar gibi de kullanilabilir. In operatörü,
+ bir nesnenin belirli bir ada sahip bir mülkü içerdigini bulmak için kullanilabilir. Ayni anahtar kelime,
+ bir nesnenin özelliklerinin üzerinden döngü yapmak için bir for döngüsünde (nesnedeki var name için) kullanilabilir.
 Egzersizler
 Bir aralik toplami
 Bu kitabin tanitimi, bir sayi araliginin toplamini hesaplamak için güzel bir yol olarak asagidakilere isaret etti:
 console.log (sum (range (1, 10)));
-Baslangiç ??ve bitis olmak üzere iki bagimsiz degiskeni alan ve bastan sona (ve dahil) sonuna kadar tüm sayilari içeren bir dizi döndüren bir aralik islevi yazin.
-Daha sonra, bir sayi dizisi alir ve bu sayilarin toplamini veren bir sum islevi yazin. Önceki programi çalistirin ve gerçekten geri dönüp dönmedigine bakin 55.
-Bir bonus ödevi olarak aralik islevini, diziyi olusturmak için kullanilan "adim" degerini gösteren istege bagli bir üçüncü bagimsiz degiskeni ele alacak sekilde degistirin. Hiçbir adim verilmezse, dizi ögeleri eski davranisa karsilik gelen bir artisla yükselir. Islev çagrisi araligi (1, 10, 2) [1, 3, 5, 7, 9] 'i döndürmelidir. Arti (5, 2, -1) araliginin [5, 4, 3, 2] ürecegi sekilde negatif adim degerleriyle de çalistigindan emin olun.
+Baslangiç ??ve bitis olmak üzere iki bagimsiz degiskeni alan ve bastan sona (ve dahil) sonuna kadar tüm sayilari 
+içeren bir dizi döndüren bir aralik islevi yazin.
+Daha sonra, bir sayi dizisi alir ve bu sayilarin toplamini veren bir sum islevi yazin. Önceki programi çalistirin
+ ve gerçekten geri dönüp dönmedigine bakin 55.
+Bir bonus ödevi olarak aralik islevini, diziyi olusturmak için kullanilan "adim" degerini gösteren istege bagli
+ bir üçüncü bagimsiz degiskeni ele alacak sekilde degistirin. Hiçbir adim verilmezse, dizi ögeleri eski davranisa
+ karsilik gelen bir artisla yükselir. Islev çagrisi araligi (1, 10, 2) [1, 3, 5, 7, 9] 'i döndürmelidir.
+ Arti (5, 2, -1) araliginin [5, 4, 3, 2] ürecegi sekilde negatif adim degerleriyle de çalistigindan emin olun.
 // Your code here.
 
 console.log(range(1, 10));
@@ -410,14 +593,26 @@ console.log(range(5, 2, -1));
 // ? [5, 4, 3, 2]
 console.log(sum(range(1, 10)));
 // ? 55
-Bir dizinin olusturulmasi, ilk olarak bir degiskene [] (yeni, bos bir dizi) baslatarak ve art arda bir deger eklemek için itme yöntemini çagirarak yapilir. Islevin sonunda dizi döndürmeyi unutmayin.
-Bitis siniri kapsayici oldugundan, döngü sonunu kontrol etmek için yalnizca <yerine = <= operatörünü kullanmaniz gerekir.
-Istege bagli adim bagimsiz degiskeninin verilmis olup olmadigini kontrol etmek için arguments.length dosyasini kontrol edin veya bagimsiz degiskenin degerini undefined ile karsilastirin. Verilmemisse, islevin üst kismindaki varsayilan degere (1) getirmeniz yeterlidir.
-Araligi negatif adim degerlerini anlamak büyük olasilikla iki ayri döngü yazarak yapilir - biri saymak için ve digeri saymak için - çünkü asagi dogru sayilirken döngünün bitip bitip tamamlanmadigini kontrol eden karsilastirma => = = <= olmalidir.
-Ayrica, araligin sonu baslangica göre daha küçük oldugunda, farkli bir varsayilan adim, yani -1 kullanmaya da degerli olabilir. Böylece, range (5, 2), sonsuz bir döngüye takilip kalmamak yerine anlamli bir sey döndürür.
+Bir dizinin olusturulmasi, ilk olarak bir degiskene [] (yeni, bos bir dizi) baslatarak ve art arda bir
+ deger eklemek için itme yöntemini çagirarak yapilir. Islevin sonunda dizi döndürmeyi unutmayin.
+Bitis siniri kapsayici oldugundan, döngü sonunu kontrol etmek için yalnizca <yerine = <= operatörünü
+ kullanmaniz gerekir.
+Istege bagli adim bagimsiz degiskeninin verilmis olup olmadigini kontrol etmek için arguments.length 
+dosyasini kontrol edin veya bagimsiz degiskenin degerini undefined ile karsilastirin. Verilmemisse,
+ islevin üst kismindaki varsayilan degere (1) getirmeniz yeterlidir.
+Araligi negatif adim degerlerini anlamak büyük olasilikla iki ayri döngü yazarak yapilir - biri saymak 
+için ve digeri saymak için - çünkü asagi dogru sayilirken döngünün bitip bitip tamamlanmadigini kontrol
+ eden karsilastirma => = = <= olmalidir.
+Ayrica, araligin sonu baslangica göre daha küçük oldugunda, farkli bir varsayilan adim, yani -1 kullanmaya
+ da degerli olabilir. Böylece, range (5, 2), sonsuz bir döngüye takilip kalmamak yerine anlamli bir sey döndürür.
 Bir diziyi ters çevirme
-Dizilerin tersine bir yöntem vardir; bu, dizinin elemanlarinin gösterildigi sirayi tersine çevirerek degistirir. Bu alistirmada reverseArray ve reverseArrayInPlace islevlerini yazin. Birincisi, reverseArray, bir diziyi bagimsiz degisken olarak alir ve ters sirada ayni ögelere sahip yeni bir dizi olusturur. Ikincisi, reverseArrayInPlace, ters yöntemin yaptigi isi yapar: elemanlarini tersine çevirmek için argüman olarak verilen diziyi degistirir. Standart ters yöntem de kullanilamaz.
-Bir önceki bölümdeki yan etkiler ve saf islevler hakkindaki notlari tekrar düsünerek, hangi durumda daha fazla durumda yararli olmasini bekliyorsunuz? Hangisi daha verimli?
+Dizilerin tersine bir yöntem vardir; bu, dizinin elemanlarinin gösterildigi sirayi tersine çevirerek degistirir.
+ Bu alistirmada reverseArray ve reverseArrayInPlace islevlerini yazin. Birincisi, reverseArray, bir diziyi bagimsiz
+ degisken olarak alir ve ters sirada ayni ögelere sahip yeni bir dizi olusturur. Ikincisi, reverseArrayInPlace, ters
+ yöntemin yaptigi isi yapar: elemanlarini tersine çevirmek için argüman olarak verilen diziyi degistirir. Standart
+ ters yöntem de kullanilamaz.
+Bir önceki bölümdeki yan etkiler ve saf islevler hakkindaki notlari tekrar düsünerek, hangi durumda daha 
+fazla durumda yararli olmasini bekliyorsunuz? Hangisi daha verimli?
 // Your code here.
 
 console.log(reverseArray(["A", "B", "C"]));
@@ -426,11 +621,23 @@ var arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);
 console.log(arrayValue);
 // ? [5, 4, 3, 2, 1]
-ReverseArray uygulamak için iki belirgin yol vardir. Birincisi, giris dizisini önden arkaya geçmek ve baslangiçta her ögeyi eklemek için yeni dizideki unshift yöntemini kullanmaktir. Ikincisi, giris dizisinin geriye dogru çevrilmesi ve push yöntemini kullanmaktir. Bir dizinin geriye dogru yinelenmesi, (var i = array.length - 1; i> = 0; i--) gibi bir özellik için bir miktar (biraz garip) gerektirir.
-Diziyi yerine geri döndürmek daha zor. Daha sonra ihtiyaç duyacaginiz ögelerin üzerine yazmamaya dikkat etmeniz gerekir. ReverseArray kullanarak veya baska bir sekilde tüm diziyi kopyalamak (array.slice (0) bir diziyi kopyalamak için iyi bir yoldur) çalisir ancak hile yapmaktadir.
-Hüner, ilk ve son unsurlari takas etmektir, sonra da ikinci ve sondan-son gibi degisir. Bunu dizinin yarisi boyunca tekrarlayarak yapabilirsiniz (yuvarlamak için Math.floor'u kullanin - tek bir uzunluktaki bir dizideki orta ögeye dokunmaniz gerekmez) ve i konumundaki ögeyi i konumundaki bir ögeyle degistirirsiniz konumda array.length - 1 - i. Elemanlardan birine kisaca basip onun ayna görüntüsünün üzerine yazilacak yerel bir degiskeni kullanabilirsiniz ve yerel degiskenden gelen degeri ayna görüntüsünün bulundugu yerde koyun.
+ReverseArray uygulamak için iki belirgin yol vardir. Birincisi, giris dizisini önden arkaya geçmek ve 
+ baslangiçta her ögeyi eklemek için yeni dizideki unshift yöntemini kullanmaktir. Ikincisi, giris dizisinin
+ geriye dogru çevrilmesi ve push yöntemini kullanmaktir. Bir dizinin geriye dogru yinelenmesi,
+ (var i = array.length - 1; i> = 0; i--) gibi bir özellik için bir miktar (biraz garip) gerektirir.
+Diziyi yerine geri döndürmek daha zor. Daha sonra ihtiyaç duyacaginiz ögelerin üzerine yazmamaya dikkat
+ etmeniz gerekir. ReverseArray kullanarak veya baska bir sekilde tüm diziyi kopyalamak 
+(array.slice (0) bir diziyi kopyalamak için iyi bir yoldur) çalisir ancak hile yapmaktadir.
+Hüner, ilk ve son unsurlari takas etmektir, sonra da ikinci ve sondan-son gibi degisir.
+ Bunu dizinin yarisi boyunca tekrarlayarak yapabilirsiniz (yuvarlamak için Math.floor'u
+ kullanin - tek bir uzunluktaki bir dizideki orta ögeye dokunmaniz gerekmez) ve 
+i konumundaki ögeyi i konumundaki bir ögeyle degistirirsiniz konumda array.length - 1 - i. 
+Elemanlardan birine kisaca basip onun ayna görüntüsünün üzerine yazilacak yerel bir degiskeni kullanabilirsiniz
+ ve yerel degiskenden gelen degeri ayna görüntüsünün bulundugu yerde koyun.
 Bir liste
-Nesneler, genel deger bloblari olarak her türlü veri yapisini olusturmak için kullanilabilir. Liste, ortak bir veri yapisidir (diziyle karistirilmamalidir). Liste, iç içe geçmis nesne kümesidir; ilk nesne ikinci bir basvuruya, ikincisi ise üçüncüye, vb. Içerir.
+Nesneler, genel deger bloblari olarak her türlü veri yapisini olusturmak için kullanilabilir.
+ Liste, ortak bir veri yapisidir (diziyle karistirilmamalidir). Liste, iç içe geçmis nesne kümesidir;
+ ilk nesne ikinci bir basvuruya, ikincisi ise üçüncüye, vb. Içerir.
 var list = {
   value: 1,
   rest: {
@@ -444,8 +651,15 @@ var list = {
    
 Ortaya çikan nesneler su sekilde bir zincir olusturur:
  
-Listeler hakkinda güzel bir sey, yapilarinin bölümlerini paylasabilmeleri. Örnegin, {value: 0, rest: list} ve {value: -1, rest: list} iki yeni deger olusturursam (daha önce tanimlanan degiskene atifta bulunan liste ile birlikte), bunlar hem bagimsiz listeler hem de paylasirlar; son üç unsurunu olusturan yapi. Buna ek olarak, orijinal liste yine de geçerli üç unsurlu bir listedir.
-Argüman olarak [1, 2, 3] verildiginde önceki gibi bir veri yapisini olusturan bir arrayToList islevi yazin ve bir listeden bir dizi olusturan bir listToArray islevi yazin. Ayrica, bir elemani ve bir listeyi alan ve girdi listesinin önüne elemani ekleyen yeni bir liste olusturan yardimci fonksiyonlar olan prepend'i yazin; nth, bir liste ve bir sayi alir ve ögeyi verilen konumdaki Liste veya böyle bir öge olmadiginda tanimsiz.
+Listeler hakkinda güzel bir sey, yapilarinin bölümlerini paylasabilmeleri. Örnegin,
+ {value: 0, rest: list} ve {value: -1, rest: list} iki yeni deger olusturursam
+ (daha önce tanimlanan degiskene atifta bulunan liste ile birlikte), bunlar hem bagimsiz listeler 
+hem de paylasirlar; son üç unsurunu olusturan yapi. Buna ek olarak, orijinal liste yine de geçerli
+ üç unsurlu bir listedir.
+Argüman olarak [1, 2, 3] verildiginde önceki gibi bir veri yapisini olusturan bir arrayToList islevi 
+yazin ve bir listeden bir dizi olusturan bir listToArray islevi yazin. Ayrica, bir elemani ve bir listeyi
+ alan ve girdi listesinin önüne elemani ekleyen yeni bir liste olusturan yardimci fonksiyonlar olan prepend'i yazin;
+ nth, bir liste ve bir sayi alir ve ögeyi verilen konumdaki Liste veya böyle bir öge olmadiginda tanimsiz.
 Henüz yapmadiysaniz, n'in tekrarlayici bir sürümünü de yazin.
 // Kodunuz burada.
 
@@ -457,15 +671,28 @@ console.log (prepend (10, prepend (20, null)));
 // ? {value: 10, dinlen: {value: 20, dinlenme: null}}
 console.log (n. (diziToListi ([10, 20, 30]), 1));
 // ? 20
-Bir liste olusturmak en iyi öne yapilir. Bu yüzden arrayToList dizi üzerinde geriye dogru yineleyebilir (önceki alistirmaya bakin) ve her öge için listeye bir nesne ekleyebilirsiniz. Simdiye kadar insa edilmis olan listenin bir kismini tutmak için bir yerel degisken kullanabilirsiniz ve bir öge eklemek için list = {value: X, rest: list} gibi bir desen kullanin.
+Bir liste olusturmak en iyi öne yapilir. Bu yüzden arrayToList dizi üzerinde geriye dogru yineleyebilir
+ (önceki alistirmaya bakin) ve her öge için listeye bir nesne ekleyebilirsiniz. Simdiye kadar insa edilmis 
+olan listenin bir kismini tutmak için bir yerel degisken kullanabilirsiniz ve bir öge eklemek için 
+list = {value: X, rest: list} gibi bir desen kullanin.
 Liste üzerinde çalistirmak için (listToArray ve nth'de), böyle bir for döngüsü belirtimi kullanilabilir:
 for (var dügüm = liste; dügüm; dügüm = node.rest) {}
-Bunun nasil çalistigini görebiliyor musun? Döngünün her tekrarlanmasiyla, dügüm geçerli alt listeye isaret eder ve gövde, geçerli ögeyi almak için deger özelligini okuyabilir. Yinelemenin sonunda, dügüm sonraki alt listeye geçer. Bu bos oldugunda, listenin sonuna ulastik ve döngü tamamlandi.
-N'in özyinelemeli hali, benzer sekilde, listenin "kuyruk" unun daha küçük bir bölümüne bakar ve ayni zamanda, sifira ulasincaya dek dizini sayar ve bu noktada, dügümün value özelligini döndürebilir bakiyor. Bir listenin sifirinci unsurunu elde etmek için bas nodunun deger özelligini ele almaniz yeterlidir. N + 1 unsurunu elde etmek için, listenin dinlenme mülkündeki listedeki N. Ögeyi alirsiniz.
+Bunun nasil çalistigini görebiliyor musun? Döngünün her tekrarlanmasiyla, dügüm geçerli alt listeye isaret eder
+ ve gövde, geçerli ögeyi almak için deger özelligini okuyabilir. Yinelemenin sonunda, dügüm sonraki alt listeye geçer.
+ Bu bos oldugunda, listenin sonuna ulastik ve döngü tamamlandi.
+N'in özyinelemeli hali, benzer sekilde, listenin "kuyruk" unun daha küçük bir bölümüne bakar ve ayni zamanda,
+ sifira ulasincaya dek dizini sayar ve bu noktada, dügümün value özelligini döndürebilir bakiyor. Bir listenin
+ sifirinci unsurunu elde etmek için bas nodunun deger özelligini ele almaniz yeterlidir. N + 1 unsurunu elde
+ etmek için, listenin dinlenme mülkündeki listedeki N. Ögeyi alirsiniz.
 Derin karsilastirma
-== isleci nesneleri kimlikle karsilastirir. Ancak bazen, gerçek özelliklerinin degerlerini karsilastirmayi tercih edersiniz.
-DeepEqual adli bir isleve iki deger alir ve yalnizca ayni degerler veya degerlerle ayni oldugunda, deepEqual için özyinelemeli bir çagriya karsilik geldiginde true degerini döndürür.
-Iki seyi kimlige göre karsilastirip incelemeyeceginizi (bunun için === operatörünü kullanip kullanamayacaginizi) ögrenmek veya özelliklerine bakarak, typeof operatörünü kullanabilirsiniz. Her iki deger için "nesne" üretiyorsa, derin bir karsilastirma yapmalisiniz. Ama aptalca bir istisna hesaba katmaniz gerekir: tarihi bir kaza ile, typeof null de "nesne" üretir.
+== isleci nesneleri kimlikle karsilastirir. Ancak bazen, gerçek özelliklerinin degerlerini karsilastirmayi 
+tercih edersiniz.
+DeepEqual adli bir isleve iki deger alir ve yalnizca ayni degerler veya degerlerle ayni oldugunda, deepEqual
+ için özyinelemeli bir çagriya karsilik geldiginde true degerini döndürür.
+Iki seyi kimlige göre karsilastirip incelemeyeceginizi (bunun için === operatörünü kullanip kullanamayacaginizi)
+ ögrenmek veya özelliklerine bakarak, typeof operatörünü kullanabilirsiniz. Her iki deger için "nesne" üretiyorsa,
+ derin bir karsilastirma yapmalisiniz. Ama aptalca bir istisna hesaba katmaniz gerekir: tarihi bir kaza ile,
+ typeof null de "nesne" üretir.
 // Your code here.
 
 var obj = {here: {is: "an"}, object: 2};
@@ -475,9 +702,16 @@ console.log(deepEqual(obj, {here: 1, object: 2}));
 // ? false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // ? true
-Gerçek bir nesne ile mi ugrastiginizdan testiniz, typeof x == "object" ve & x! = Null gibi bir sey gibi görünecektir. Mülkleri sadece her iki argüman da nesne oldugunda karsilastirmaya dikkat edin. Diger tüm durumlarda, hemen === uygulamanin sonucunu döndürebilirsiniz.
-Özelliklerin üzerine gitmek için bir for / in döngüsü kullanin. Her iki nesnenin ayni özellik adi kümesine sahip olup olmadigini ve bu özelliklerin ayni degerlere sahip olup olmadigini test etmeniz gerekir. Ilk test, her iki cismin özelliklerini sayarak ve özelliklerin sayilari farkliysa, false degerini döndürerek yapilabilir. Ayniysa, bir nesnenin özelliklerini inceleyin ve her biri için diger nesnenin de mülkiyetinin bulundugundan emin olun. Özelliklerin degerleri, özyinelemeli bir deepEqual çagrisi ile karsilastirilir.
-Dogru degeri isleve döndürmek, bir uyumsuzluk farkedildiginde hemen false degerini döndürerek ve islevin sonunda dogru olarak döndürerek yapilir.
+Gerçek bir nesne ile mi ugrastiginizdan testiniz, typeof x == "object" ve & x! = Null gibi bir sey gibi görünecektir
+. Mülkleri sadece her iki argüman da nesne oldugunda karsilastirmaya dikkat edin. Diger tüm durumlarda,
+ hemen === uygulamanin sonucunu döndürebilirsiniz.
+Özelliklerin üzerine gitmek için bir for / in döngüsü kullanin. Her iki nesnenin ayni özellik adi kümesine
+ sahip olup olmadigini ve bu özelliklerin ayni degerlere sahip olup olmadigini test etmeniz gerekir. Ilk test,
+ her iki cismin özelliklerini sayarak ve özelliklerin sayilari farkliysa, false degerini döndürerek yapilabilir.
+ Ayniysa, bir nesnenin özelliklerini inceleyin ve her biri için diger nesnenin de mülkiyetinin bulundugundan
+ emin olun. Özelliklerin degerleri, özyinelemeli bir deepEqual çagrisi ile karsilastirilir.
+Dogru degeri isleve döndürmek, bir uyumsuzluk farkedildiginde hemen false degerini döndürerek ve islevin 
+sonunda dogru olarak döndürerek yapilir.
 
 
 
@@ -486,11 +720,17 @@ _______________________2__________________________________________________
 
 Bölüm 5
 Yüksek Mertebeden Islevler
-Tzu-li ve Tzu-ssu en yeni programlarinin büyüklügünden övündü. Tzu-li, "Iki yüz bin hatti, yorumlara güvenmiyor" dedi Tzu-ssu, "Pssh, benimkinin neredeyse bir milyon satira yaklastigini" söyledi. Master Yuan-Ma, "En iyi programim bes yüz çizgisine sahiptir" dedi. "Bunu duyan Tzu-li ve Tzu-ssu aydinlatildi.
+Tzu-li ve Tzu-ssu en yeni programlarinin büyüklügünden övündü. Tzu-li, "Iki yüz bin hatti,
+ yorumlara güvenmiyor" dedi Tzu-ssu, "Pssh, benimkinin neredeyse bir milyon satira yaklastigini" söyledi.
+ Master Yuan-Ma, "En iyi programim bes yüz çizgisine sahiptir" dedi. "Bunu duyan Tzu-li ve Tzu-ssu aydinlatildi.
 Master Yuan-Ma, Programlama Kitabi
-Bir yazilim tasarimi olusturmanin iki yolu vardir: Bir yol, o kadar basit ki açikça hiç eksiklik olmamasini saglamaktir, diger taraftan belirgin bir eksiklik olmadigi kadar karmasik hale getirmektir.
+Bir yazilim tasarimi olusturmanin iki yolu vardir: Bir yol, o kadar basit ki açikça hiç eksiklik olmamasini 
+saglamaktir, diger taraftan belirgin bir eksiklik olmadigi kadar karmasik hale getirmektir.
 C.A.R. Hoare, 1980 ACM Turing Ödülü Anlatim
-Büyük bir program, maliyeti yüksek bir programdir ve yalnizca kurmak için gereken süre yüzünden degil. Boyutu her zaman karmasikligi içerir ve karmasiklik programcilari karistirir. Kafa karistirici programcilar, programlara hata (böcek) getirme egilimindedirler. Büyük bir program ayni zamanda bu böceklerin gizlenmesi için çok fazla alan saglar, böylece onlari bulmak zorlasir.
+Büyük bir program, maliyeti yüksek bir programdir ve yalnizca kurmak için gereken süre yüzünden degil.
+ Boyutu her zaman karmasikligi içerir ve karmasiklik programcilari karistirir. Kafa karistirici programcilar,
+ programlara hata (böcek) getirme egilimindedirler. Büyük bir program ayni zamanda bu böceklerin gizlenmesi 
+için çok fazla alan saglar, böylece onlari bulmak zorlasir.
 Kisaca giristeki son iki örnek programa geri dönelim. Birincisi kendine yeten ve alti satir uzunlugunda.
 var total = 0, count = 1;
 while (count <= 10) {
@@ -503,21 +743,36 @@ console.log(total)
 Ikincisi, iki harici fonksiyona dayanir ve bir satir uzunlugundadir.
 console.log(sum(range(1, 10)));
 Hangisinin bir hata içerdigi daha olasi?
-Toplam ve aralik tanimlarinin boyutunu sayarsak, ikinci program da büyüktür - ilk programdan daha büyüktür. Ancak yine de, dogru olmasi muhtemel oldugunu iddia ederim.
-Çözüm olasiligi, çözülmekte olan soruna karsilik gelen bir sözcükte ifade edildiginden, dogru olma olasiligi daha yüksektir. Bir dizi sayi toplamak, döngüler ve sayaçlar hakkinda degildir. Bu aralik ve meblaglar hakkinda.
-Bu sözlüklerin tanimlari (fonksiyonlarin toplami ve araligi) döngüler, sayaçlar ve diger arizi ayrintilari içermelidir. Fakat bir bütün olarak programdan daha basit kavramlar dile getirdikleri için, dogru bulmalari daha kolaydir.
+Toplam ve aralik tanimlarinin boyutunu sayarsak, ikinci program da büyüktür - ilk programdan daha büyüktür.
+ Ancak yine de, dogru olmasi muhtemel oldugunu iddia ederim.
+Çözüm olasiligi, çözülmekte olan soruna karsilik gelen bir sözcükte ifade edildiginden, dogru olma olasiligi
+ daha yüksektir. Bir dizi sayi toplamak, döngüler ve sayaçlar hakkinda degildir. Bu aralik ve meblaglar hakkinda.
+Bu sözlüklerin tanimlari (fonksiyonlarin toplami ve araligi) döngüler, sayaçlar ve diger arizi ayrintilari
+ içermelidir. Fakat bir bütün olarak programdan daha basit kavramlar dile getirdikleri için, dogru bulmalari
+ daha kolaydir.
 Soyutlama
-Programlama baglaminda, bu tür sözcüklere genellikle soyutlamalar denir. Soyutlamalar ayrintilari gizler ve sorunlardan daha yüksek (veya daha soyut) bir düzeyde konusma imkâni verir.
+Programlama baglaminda, bu tür sözcüklere genellikle soyutlamalar denir. Soyutlamalar ayrintilari gizler ve
+ sorunlardan daha yüksek (veya daha soyut) bir düzeyde konusma imkâni verir.
 Bir benzetme olarak, bezelye çorbasi için bu iki tarifi karsilastirin:
-Kisi basina 1 su bardagi kurutulmus bezelye koyun. Bezelye iyi kaplanana kadar suyu ekleyin. Bezelyeleri en az 12 saat suda birakin. Bezelyeleri sudan alin ve bir tencereye koyun. Kisi basi 4 su bardagi su ekleyin. Tavayi örtün ve bezelyeleri iki saat kaynatin. Kisi basi yarim sogan alin. Bir biçakla parçalayin. Bezelyeye ekleyin. Kisi basina bir kereviz götürün. Bir biçakla parçalayin. Bezelyeye ekleyin. Kisi basina bir havuç al. Parçalara bölün. Biçak ile! Bezelyeye ekleyin. 10 dakika daha pisirin.
+Kisi basina 1 su bardagi kurutulmus bezelye koyun. Bezelye iyi kaplanana kadar suyu ekleyin. Bezelyeleri en
+ az 12 saat suda birakin. Bezelyeleri sudan alin ve bir tencereye koyun. Kisi basi 4 su bardagi su ekleyin.
+ Tavayi örtün ve bezelyeleri iki saat kaynatin. Kisi basi yarim sogan alin. Bir biçakla parçalayin.
+ Bezelyeye ekleyin. Kisi basina bir kereviz götürün. Bir biçakla parçalayin. Bezelyeye ekleyin.
+ Kisi basina bir havuç al. Parçalara bölün. Biçak ile! Bezelyeye ekleyin. 10 dakika daha pisirin.
 Ve ikinci tarifi:
 Kisi basi: 1 su bardagi kurutulmus bezelye, yarim dogranmis sogan, kereviz sapi ve havuç.
-Bezelyeleri 12 saat bekletin. 4 bardak suda 2 saat kaynatin (kisi basi). Dogal sebze ekleyin ve ekleyin. 10 dakika daha pisirin.
-Ikincisi daha kisa ve daha kolay yorumlanabilir. Ancak pisirme ile ilgili daha birkaç kelime - nemlendirin, kaynatin, dograyin, sanirim, sebze anlamaniz gerekiyor.
-Programlamada, sözlükte bizi beklemek zorunda oldugumuz tüm kelimelere güvenemiyoruz. Böylece, ilk tarife modeline girersiniz - bilgisayarin gerçeklestirmesi gereken hassas adimlari tek tek, ifade ettikleri üst düzey konseptlere kör edin.
-Bir programci için, bir kavramin yeni bir sözcükte soyutlanmasi için yalvarmak istediginde bunu fark etmenin ikinci dogasi haline gelmesi gerekir.
+Bezelyeleri 12 saat bekletin. 4 bardak suda 2 saat kaynatin (kisi basi). Dogal sebze ekleyin ve ekleyin. 
+10 dakika daha pisirin.
+Ikincisi daha kisa ve daha kolay yorumlanabilir. Ancak pisirme ile ilgili daha birkaç kelime - nemlendirin,
+ kaynatin, dograyin, sanirim, sebze anlamaniz gerekiyor.
+Programlamada, sözlükte bizi beklemek zorunda oldugumuz tüm kelimelere güvenemiyoruz. Böylece, 
+ilk tarife modeline girersiniz - bilgisayarin gerçeklestirmesi gereken hassas adimlari tek tek, ifade 
+ettikleri üst düzey konseptlere kör edin.
+Bir programci için, bir kavramin yeni bir sözcükte soyutlanmasi için yalvarmak istediginde bunu fark 
+etmenin ikinci dogasi haline gelmesi gerekir.
 Soyut siralama gezdirme
-Düz islevler, simdiye kadar gördügümüz gibi, soyutlamalar olusturmak için iyi bir yoldur. Fakat bazen kisa düsürürler.
+Düz islevler, simdiye kadar gördügümüz gibi, soyutlamalar olusturmak için iyi bir yoldur. Fakat bazen
+ kisa düsürürler.
 
 Bir önceki bölümde, bu for döngü birkaç görünüse neden oldu:
 var array = [1, 2, 3];
@@ -525,14 +780,18 @@ for (var i = 0; i < array.length; i++) {
   var current = array[i];
   console.log(current);
 }
-Dizideki her öge için konsolda oturum" yapmaya çalisiyor. Ancak, bir sayaç degiskeni, dizinin uzunluguna karsi bir denetim ve geçerli ögeyi seçmek için ek bir degisken bildirimi içeren dolambaçli bir yol kullanir. Biraz göz kamastirmaktan baska, potansiyel hatalar için çok fazla alan saglar. Yanlislikla i degiskeni yeniden yazabilir, uzunlugu yanlis yazabilir, i ve geçerli degiskenleri karistirabiliriz vb.
+Dizideki her öge için konsolda oturum" yapmaya çalisiyor. Ancak, bir sayaç degiskeni, dizinin uzunluguna karsi
+ bir denetim ve geçerli ögeyi seçmek için ek bir degisken bildirimi içeren dolambaçli bir yol kullanir.
+ Biraz göz kamastirmaktan baska, potansiyel hatalar için çok fazla alan saglar. Yanlislikla i
+ degiskeni yeniden yazabilir, uzunlugu yanlis yazabilir, i ve geçerli degiskenleri karistirabiliriz vb.
 Öyleyse, bunu bir islev haline getirmeye çalisalim. Bir yol düsünüyor musun?
 Bir dizi üzerinden gider ve her öge üzerinde console.log dosyasini çagiran bir islev yazmak kolaydir.
 function logEach(array) {
   for (var i = 0; i < array.length; i++)
     console.log(array[i]);
 }
-Peki elemanlari günlüge kaydetmekten baska bir sey yapmak istersek ne olur? "Bir seyler yapmak" bir islev olarak gösterilebilir ve islevler yalnizca degerlerdir, eylemimizi bir islev degeri olarak aktarabiliriz.
+Peki elemanlari günlüge kaydetmekten baska bir sey yapmak istersek ne olur? "Bir seyler yapmak" 
+bir islev olarak gösterilebilir ve islevler yalnizca degerlerdir, eylemimizi bir islev degeri olarak aktarabiliriz.
 function forEach(array, action) {
   for (var i = 0; i < array.length; i++)
     action(array[i]);
@@ -544,18 +803,26 @@ forEach(["Wampeter", "Foma", "Granfalloon"], console.log);
 // ? Granfalloon
 
 
-Bazi tarayicilarda console.log dosyasinin bu sekilde çagirilmasi ise yaramamaktadir.Bu örnek basarisiz olursa console.log yerine alert kullanabilirsiniz.)
-ForEach için önceden tanimlanmis bir isleve genellikle geçemezsiniz, bunun yerine yerine bir islev degeri olusturursunuz.
+Bazi tarayicilarda console.log dosyasinin bu sekilde çagirilmasi ise yaramamaktadir.Bu örnek basarisiz
+ olursa console.log yerine alert kullanabilirsiniz.)
+ForEach için önceden tanimlanmis bir isleve genellikle geçemezsiniz, bunun yerine yerine bir islev 
+degeri olusturursunuz.
 var numbers = [1, 2, 3, 4, 5], sum = 0;
 forEach(numbers, function(number) {
   sum += number;
 });
 console.log(sum);
 // ? 15
-Bu, klasik for döngüsüne benziyor ve cesedi bunun altindaki bir blok olarak yazilmis. Ancak, simdi gövde, forEach çagrisinin parantezleri içinde oldugu gibi fonksiyon degerinin içinde. Bu nedenle kapanis parantezi ve kapatma parantezi ile kapatilmalidir.
-Bu deseni kullanarak, elle diziden seçilmek zorunda kalmadan, geçerli öge (sayi) için bir degisken adi belirleyebiliriz.
-Aslinda kendi basimiza yazmak zorunda degiliz. Dizilerde standart bir yöntem olarak bulunur. Dizge, yöntemin üzerinde çalistigi sey oldugundan, ForEach yalnizca gerekli bir bagimsiz degiskeni alir: her öge için çalistirilacak islev.
-Bunun ne kadar faydali oldugunu göstermek için bir önceki bölümdeki bir isle geri dönelim. Iki dizi geçme döngüsü içeriyor.
+Bu, klasik for döngüsüne benziyor ve cesedi bunun altindaki bir blok olarak yazilmis. Ancak, simdi gövde,
+ forEach çagrisinin parantezleri içinde oldugu gibi fonksiyon degerinin içinde. Bu nedenle kapanis
+ parantezi ve kapatma parantezi ile kapatilmalidir.
+Bu deseni kullanarak, elle diziden seçilmek zorunda kalmadan, geçerli öge (sayi) için bir degisken
+ adi belirleyebiliriz.
+Aslinda kendi basimiza yazmak zorunda degiliz. Dizilerde standart bir yöntem olarak bulunur. Dizge,
+ yöntemin üzerinde çalistigi sey oldugundan, ForEach yalnizca gerekli bir bagimsiz degiskeni
+ alir: her öge için çalistirilacak islev.
+Bunun ne kadar faydali oldugunu göstermek için bir önceki bölümdeki bir isle geri dönelim. 
+Iki dizi geçme döngüsü içeriyor.
 
 function gatherCorrelations(journal) {
   var phis = {};
@@ -580,8 +847,12 @@ function gatherCorrelations(journal) {
   });
   return phis;
 Yüksek mertebeden fonksiyonlar
-Diger islevleri bagimsiz degisken olarak veya geri döndürerek isleyen islevlere daha üst düzey islevler denir. Islevlerin normal degerler oldugu gerçegini zaten kabul ettiyseniz, bu tür islevlerin var olmasi konusunda özellikle dikkate deger hiçbir sey yoktur. Terim, fonksiyonlar ve diger degerler arasindaki ayrimin daha ciddiye alindigi matematikten gelir.
-Daha yüksek siparis islevleri, yalnizca degerleri degil eylemleri özetlememizi saglar. Birkaç formda gelirler. Örnegin, yeni islevler olusturan islevlere sahip olabilirsiniz.
+Diger islevleri bagimsiz degisken olarak veya geri döndürerek isleyen islevlere daha üst düzey islevler denir.
+ Islevlerin normal degerler oldugu gerçegini zaten kabul ettiyseniz, bu tür islevlerin var olmasi konusunda
+ özellikle dikkate deger hiçbir sey yoktur. Terim, fonksiyonlar ve diger degerler arasindaki ayrimin daha
+ ciddiye alindigi matematikten gelir.
+Daha yüksek siparis islevleri, yalnizca degerleri degil eylemleri özetlememizi saglar. Birkaç formda gelirler.
+ Örnegin, yeni islevler olusturan islevlere sahip olabilirsiniz.
 function greaterThan(n) {
   return function(m) { return m > n; };
 }
@@ -615,7 +886,11 @@ repeat(3, function(n) {
 });
 // ? 0 is even
 // ? 2 is even
-Bölüm 3'te tartistigimiz sözcük skoplama kurallari, islevleri bu sekilde kullandigimizda avantajimizi saglamaktadir. Önceki örnekte, n degiskeni, dis islevin bir parametresidir. Iç islev distaki çevrede yasar, n'yi kullanabilir. Bu iç islevlerin cesetleri çevrelerindeki degiskenlere erisebilir. Normal döngüler ve kosullu ifadelerde kullanilan {} bloklarina benzer bir rol oynayabilirler. Önemli bir fark, iç islevler içerisinde bildirilen degiskenlerin, dis islev ortaminda sona ermedigidir. Ve bu genellikle iyi bir sey.
+Bölüm 3'te tartistigimiz sözcük skoplama kurallari, islevleri bu sekilde kullandigimizda avantajimizi 
+saglamaktadir. Önceki örnekte, n degiskeni, dis islevin bir parametresidir. Iç islev distaki çevrede yasar,
+ n'yi kullanabilir. Bu iç islevlerin cesetleri çevrelerindeki degiskenlere erisebilir. Normal döngüler
+ ve kosullu ifadelerde kullanilan {} bloklarina benzer bir rol oynayabilirler. Önemli bir fark, iç islevler 
+içerisinde bildirilen degiskenlerin, dis islev ortaminda sona ermedigidir. Ve bu genellikle iyi bir sey.
 Argümanlar arasinda geçis
 Daha önce tanimlanan, argümanini baska bir isleve saran gürültülü islevin ciddi bir eksikligi vardir.
 
@@ -627,18 +902,30 @@ function noisy(f) {
     return val;
   };
 }
-F birden fazla parametre alir, yalnizca ilk parametre alir. Iç isleve bir argüman ekleyebiliriz (arg1, arg2 vb.) Ve hepsini f'ye aktarabiliriz, ancak bunlarin kaçinin yeterli olacagi belli degildir. Bu çözüm ayni zamanda arguments.length dosyasindaki bilgileri de mahvederdi. Her zaman ayni sayida argümani geçecegimizden, baslangiçta kaç argümanin verildigini bilemezdi.
-Bu tür durumlar için, JavaScript islevlerinin uygulama yöntemi vardir. Bagimsiz degiskenlerden olusan bir dizi (veya dizi benzeri nesne) iletirsiniz ve islevi bu bagimsiz degiskenlerle çagirir.
+F birden fazla parametre alir, yalnizca ilk parametre alir. Iç isleve bir argüman ekleyebiliriz 
+(arg1, arg2 vb.) Ve hepsini f'ye aktarabiliriz, ancak bunlarin kaçinin yeterli olacagi belli degildir. 
+Bu çözüm ayni zamanda arguments.length dosyasindaki bilgileri de mahvederdi. Her zaman ayni sayida 
+argümani geçecegimizden, baslangiçta kaç argümanin verildigini bilemezdi.
+Bu tür durumlar için, JavaScript islevlerinin uygulama yöntemi vardir. Bagimsiz degiskenlerden olusan
+ bir dizi (veya dizi benzeri nesne) iletirsiniz ve islevi bu bagimsiz degiskenlerle çagirir.
 
 function transparentWrapping(f) {
   return function() {
     return f.apply(null, arguments);
   };
 }
-Bu ise yaramaz bir islevdir, ancak ilgilendigimiz deseni gösterir; döndürdügü islev, tüm verilen bagimsiz degiskenleri ve yalnizca bagimsiz degiskenleri f'ye aktarir. Bunu kendi argümanlarini uygulayarak geçirerek yapar. Buraya null iletirken uygulayacagimiz ilk argüman, bir yöntem çagrisini simüle etmek için kullanilabilir. Bir sonraki bölümde buna geri dönecegiz.
+Bu ise yaramaz bir islevdir, ancak ilgilendigimiz deseni gösterir; döndürdügü islev, tüm verilen bagimsiz 
+degiskenleri ve yalnizca bagimsiz degiskenleri f'ye aktarir. Bunu kendi argümanlarini uygulayarak geçirerek yapar.
+ Buraya null iletirken uygulayacagimiz ilk argüman, bir yöntem çagrisini simüle etmek için kullanilabilir.
+ Bir sonraki bölümde buna geri dönecegiz.
 JSON
-Islevleri bir sekilde bir dizinin elemanlarina uygulayan daha üst düzey islevler JavaScript'te yaygin olarak kullanilir. Her metot için en ilkel olan bu yöntemdir. Dizilerde yöntem olarak kullanilabilen bir dizi baska degisken var. Onlarla tanismak için baska bir veri setiyle oynamaya baslayalim.
-Birkaç yil önce, birileri çok sayida arsiv taradi ve soyadi tarihçesi üzerine bir kitap (Haverbeke-yani Oatbrook) bir araya getirdi. Sövalyeleri, korsanlari ve simyacilari bulmayi umarak açtim ... ama kitap çogunlukla Flaman çiftçileriyle doluydu. Eglence için, dogrudan atalarim hakkindaki bilgileri çikardim ve bilgisayar tarafindan okunabilir bir biçimde yerlestirdim.
+Islevleri bir sekilde bir dizinin elemanlarina uygulayan daha üst düzey islevler JavaScript'te yaygin olarak 
+kullanilir. Her metot için en ilkel olan bu yöntemdir. Dizilerde yöntem olarak kullanilabilen bir dizi baska
+ degisken var. Onlarla tanismak için baska bir veri setiyle oynamaya baslayalim.
+Birkaç yil önce, birileri çok sayida arsiv taradi ve soyadi tarihçesi üzerine bir kitap (Haverbeke-yani Oatbrook)
+ bir araya getirdi. Sövalyeleri, korsanlari ve simyacilari bulmayi umarak açtim ... ama kitap çogunlukla
+ Flaman çiftçileriyle doluydu. Eglence için, dogrudan atalarim hakkindaki bilgileri çikardim ve 
+tarafindan okunabilir bir biçimde yerlestirdim.
 Olusturdugum dosya su sekilde görünüyor:
 [
   {"name": "Emma de Milliano", "sex": "f",
@@ -661,12 +948,14 @@ console.log(string);
 // ? {"name":"X","born":1980}
 console.log(JSON.parse(string).born);
 // ? 1980
-Bu bölümün sanal alanindaki ve web sitesindeki indirilebilir bir dosyada bulunan ANCESTRY_FILE degiskeni, JSON dosyamin içerigini bir dize olarak içerir. Çözelim ve kaç kisiyi içerdigini görelim.
+Bu bölümün sanal alanindaki ve web sitesindeki indirilebilir bir dosyada bulunan ANCESTRY_FILE degiskeni,
+ JSON dosyamin içerigini bir dize olarak içerir. Çözelim ve kaç kisiyi içerdigini görelim.
 var ancestry = JSON.parse(ANCESTRY_FILE);
 console.log(ancestry.length);
 // ? 39
 Bir diziyi filtrelemek
-1924'te genç olan soy veri setindeki insanlar bulmak için asagidaki islev yararli olabilir. Bir dizide, testi geçmeyen ögeleri filtreler.
+1924'te genç olan soy veri setindeki insanlar bulmak için asagidaki islev yararli olabilir. Bir dizide,
+ testi geçmeyen ögeleri filtreler.
 function filter(array, test) {
   var passed = [];
   for (var i = 0; i < array.length; i++) {
@@ -680,17 +969,23 @@ console.log(filter(ancestry, function(person) {
   return person.born > 1900 && person.born < 1925;
 }));
 // ? [{name: "Philibert Haverbeke", …}, …]
-Bu, hesaplamada bir "bosluk" doldurmak için test degeri olan argümani kullanir. Test islevi her öge için çagrilir ve dönüs degeri döndürülen dizide bir ögenin bulunup bulunmadigini belirler.
+Bu, hesaplamada bir "bosluk" doldurmak için test degeri olan argümani kullanir. Test islevi her öge için çagrilir
+ ve dönüs degeri döndürülen dizide bir ögenin bulunup bulunmadigini belirler.
 Dosyadaki üç kisi 1924'te yasiyordu: dedem, büyükanne ve büyük teyzem.
-Varolan dizideki ögeleri silmek yerine filtre islevinin, yalnizca testi geçen ögelerle birlikte yeni bir dizi olusturduguna dikkat edin. Bu islev saftir. Verilen diziyi degistirmez.
-ForEach'da oldugu gibi, filtre de dizilerde standart bir yöntemdir. Örnek, islevi yalnizca dahili olarak ne yaptigini göstermek için tanimladi. Artik bundan böyle kullanacagiz:
+Varolan dizideki ögeleri silmek yerine filtre islevinin, yalnizca testi geçen ögelerle birlikte yeni bir dizi 
+olusturduguna dikkat edin. Bu islev saftir. Verilen diziyi degistirmez.
+ForEach'da oldugu gibi, filtre de dizilerde standart bir yöntemdir. Örnek, islevi yalnizca dahili olarak ne
+ yaptigini göstermek için tanimladi. Artik bundan böyle kullanacagiz:
 console.log(ancestry.filter(function(person) {
   return person.father == "Carel Haverbeke";
 }));
 // ? [{name: "Carolus Haverbeke", …}]
 Harita ile dönüsüm
-Insan soyunu temsil eden, bir sekilde soy dizisini filtreleyerek üretilen bir dizi nesnemiz oldugunu varsayalim. Ancak bir dizi isim istiyoruz, bu da okunmasi daha kolay.
-Map yöntemi, tüm ögelerine bir islev uygulayarak ve döndürülen degerlerden yeni bir dizi olusturarak bir diziyi dönüstürür. Yeni dizi, giris dizisi ile ayni uzunluga sahip olacak, ancak içerigi islev tarafindan yeni bir forma "eslestirilecek".
+Insan soyunu temsil eden, bir sekilde soy dizisini filtreleyerek üretilen bir dizi nesnemiz oldugunu varsayalim.
+ Ancak bir dizi isim istiyoruz, bu da okunmasi daha kolay.
+Map yöntemi, tüm ögelerine bir islev uygulayarak ve döndürülen degerlerden yeni bir dizi olusturarak
+ bir diziyi dönüstürür. Yeni dizi, giris dizisi ile ayni uzunluga sahip olacak,
+ ancak içerigi islev tarafindan yeni bir forma "eslestirilecek".
 function map(array, transform) {
   var mapped = [];
   for (var i = 0; i < array.length; i++)
@@ -708,12 +1003,18 @@ console.log(map(overNinety, function(person) {
 //    "Maria Haverbeke"]
 
 
-Ilginç bir sekilde, en az 90 yasinda yasayan insanlar, daha önce gördügümüz üç kisiyiz - 1920'lerde genç olan verilerimizdeki en yeni nesil olur. Sanirim ilaç uzun bir yol kat etti.
+Ilginç bir sekilde, en az 90 yasinda yasayan insanlar, daha önce gördügümüz üç kisiyiz - 1920'lerde
+ genç olan verilerimizdeki en yeni nesil olur. Sanirim ilaç uzun bir yol kat etti.
 For each ve filter gibi, map da dizilerde standart bir yöntemdir.
 Küçültme ile özetleme
-Diziler üzerinde hesaplamanin diger yaygin bir örnegi, onlardan tek bir deger hesaplamaktir. Bir dizi sayi toplarsak tekrar eden örnegimiz bunun bir örnegidir. Baska bir örnek ise, en erken dogum yapan kisiyi veri setinde bulma olacaktir.
-Bu deseni temsil eden daha üst düzey islem, küçültme (bazen katlama) olarak adlandirilir. Diziyi bir kerede birer katlayacak sekilde düsünebilirsiniz. Sayilari toplarken, sifir ile baslar ve her bir öge için, onu ekleyerek geçerli toplamla birlestirirsiniz.
-Azaltma fonksiyonunun parametreleri, dizi disinda bir birlestirme fonksiyonu ve bir baslangiç ??degeri. Bu islev, filtre ve haritadan biraz daha basittir, bu nedenle dikkatli olun.
+Diziler üzerinde hesaplamanin diger yaygin bir örnegi, onlardan tek bir deger hesaplamaktir. Bir dizi
+ sayi toplarsak tekrar eden örnegimiz bunun bir örnegidir. Baska bir örnek ise, en erken dogum yapan kisiyi
+ veri setinde bulma olacaktir.
+Bu deseni temsil eden daha üst düzey islem, küçültme (bazen katlama) olarak adlandirilir. Diziyi bir kerede
+ birer katlayacak sekilde düsünebilirsiniz. Sayilari toplarken, sifir ile baslar ve her bir öge için, onu ekleyerek
+ geçerli toplamla birlestirirsiniz.
+Azaltma fonksiyonunun parametreleri, dizi disinda bir birlestirme fonksiyonu ve bir baslangiç ??degeri. 
+Bu islev, filtre ve haritadan biraz daha basittir, bu nedenle dikkatli olun.
 
 function reduce(array, combine, start) {
   var current = start;
@@ -726,7 +1027,9 @@ console.log(reduce([1, 2, 3, 4], function(a, b) {
   return a + b;
 }, 0));
 // ? 10
-Elbette bu isleve karsilik gelen standart dizi yöntemi azalmasi, ek bir rahatliga sahiptir. Dizinizde en az bir öge varsa, baslangiç argümanini birakmaniz gerekir. Yöntem, dizinin ilk ögesini baslangiç degeri olarak alir ve ikinci ögede azaltmaya baslar.
+Elbette bu isleve karsilik gelen standart dizi yöntemi azalmasi, ek bir rahatliga sahiptir. 
+Dizinizde en az bir öge varsa, baslangiç argümanini birakmaniz gerekir. Yöntem, dizinin ilk ögesini 
+baslangiç degeri olarak alir ve ikinci ögede azaltmaya baslar.
 Azaltmak için en bilinen atalarimizi bulmak için, böyle bir sey yazabiliriz:
 console.log(ancestry.reduce(function(min, cur) {
   if (cur.born < min.born) return cur;
@@ -734,7 +1037,8 @@ console.log(ancestry.reduce(function(min, cur) {
 }));
 // ? {name: "Pauwels van Haverbeke", born: 1535, …}
 Birlestirmeyi
-Önceki örnegi nasil yazdigimizi düsünün (dogumun en erken yilini bulan kisi) daha üst düzey islevler olmadan nasil yaptiklarini düsünün. Kod o kadar da kötü degil.
+Önceki örnegi nasil yazdigimizi düsünün (dogumun en erken yilini bulan kisi) daha üst düzey islevler
+ olmadan nasil yaptiklarini düsünün. Kod o kadar da kötü degil.
 var min = ancestry[0];
 for (var i = 1; i < ancestry.length; i++) {
   var cur = ancestry[i];
@@ -744,7 +1048,8 @@ for (var i = 1; i < ancestry.length; i++) {
 console.log(min);
 // ? {name: "Pauwels van Haverbeke", born: 1535, …}
 Birkaç daha degisken var ve programin iki satiri daha uzun ama yine de oldukça kolay anlasiliyor.
-Islevleri olusturmaniz gerektiginde daha yüksek siparis islevleri parlamaya baslar. Örnek olarak, veri kümesindeki erkekler ve kadinlar için yas ortalamasini bulan bir kod yazalim.
+Islevleri olusturmaniz gerektiginde daha yüksek siparis islevleri parlamaya baslar. Örnek olarak,
+ veri kümesindeki erkekler ve kadinlar için yas ortalamasini bulan bir kod yazalim.
 function average(array) {
   function plus(a, b) { return a + b; }
   return array.reduce(plus) / array.length;
@@ -757,18 +1062,40 @@ console.log(average(ancestry.filter(male).map(age)));
 // ? 61.67
 console.log(average(ancestry.filter(female).map(age)));
 // ? 54.56
-(Arti bir islev olarak tanimlamamiz biraz aptalca ancak JavaScript'deki isleçler, islevlerin aksine deger degildir, dolayisiyla bunlari bagimsiz degisken olarak degistiremezsiniz.)
-Mantigi büyük bir döngüye sokmak yerine, seks, yas hesaplama ve sayi ortalamalarini belirleme konusundaki ilgilendigimiz konulardan olusur. Aradigimiz sonucu elde etmek için bunlari tek tek uygulayabiliriz.
+(Arti bir islev olarak tanimlamamiz biraz aptalca ancak JavaScript'deki isleçler, islevlerin aksine deger
+ degildir, dolayisiyla bunlari bagimsiz degisken olarak degistiremezsiniz.)
+Mantigi büyük bir döngüye sokmak yerine, seks, yas hesaplama ve sayi ortalamalarini belirleme konusundaki 
+ilgilendigimiz konulardan olusur. Aradigimiz sonucu elde etmek için bunlari tek tek uygulayabiliriz.
 Açik kod yazmak için muhtesem. Ne yazik ki, bu netlik bir maliyet getiriyor.
 Ücret
-Zarif kodlarin ve güzel gökkusaginin mutlu topraklarinda, verimsizlik olarak adlandirilan bir bozulma-spor canavari yasar.
-Bir diziyi isleyen bir program, en zarif biçimde, her biri diziyle bir seyler yapan ve yeni bir dizi üreten birbirinden tamamen ayrilmis adimlar dizisi olarak ifade edilir. Ancak bütün bu ara dizileri olusturmak biraz pahali.
-Benzer sekilde, bir forEach'a bir islev geçirir ve bu yönteme dizi yinelemesini bizim için idare ettirmek, rahat ve okunmasi kolay olur. Ancak JavaScript'te islev çagrilari, basit döngü yapilariyla karsilastirildiginda maliyetlidir.
-Ve bu yüzden, bir programin netligini gelistirmeye yardimci olan birçok teknikle birlikte ilerliyor. Soyutlamalar, bilgisayarin yaptigi ham seylerle ve çalistigimiz kavramlar arasinda katmanlar katar ve böylece makinenin daha fazla çalisma yapmasina neden olur. Bu bir demir yasasi degildir - verimsizlik yaratmadan soyutlamalar olusturmak için daha iyi destegi olan programlama dilleri vardir ve deneyimli bir programci, JavaScript'te bile, yine de hizli olan soyut kod yazmanin yollarini bulabilir. Ancak bu çok ortaya çikan bir sorundur.
-Neyse ki, çogu bilgisayar delicesine hizlidir. Mütevazi bir veri kümesi isliyor veya yalnizca bir insan zaman ölçeginde gerçeklesmesi gereken bir sey yapiyorsaniz (örnegin, kullanici bir dügmeyi tiklattiginda) yarim milisaniye süren güzel bir çözüm yazip yazmadiginiz önemli degildir. veya milimetrenin onda birini alan süper-optimize bir çözüm.
-Programinizdaki bir parçanin ne siklikta çalisacagini kabaca takip etmeniz yararlidir. Bir döngü içinde bir döngü varsa (dogrudan veya iç döngüyü tamamlayan biten bir islev çagiran dis döngü araciligiyla), iç döngü içindeki kod NxM kez çalismaya baslar, burada N kez dis döngü tekrarlar ve M, iç döngünün, dis döngünün her iterasyonunda tekrar ettigi sayidir. Bu iç döngü P hareketi yapan baska bir halka içeriyorsa, vücudu M × N × P kez çalisacak ve böylece devam edecektir. Bu, çok sayida ekleme yapabilir ve bir program yavas oldugunda, sorun genellikle iç döngüye oturan kodun yalnizca küçük bir bölümüne kadar izlenebilir.
+Zarif kodlarin ve güzel gökkusaginin mutlu topraklarinda, verimsizlik olarak adlandirilan
+ bir bozulma-spor canavari yasar.
+Bir diziyi isleyen bir program, en zarif biçimde, her biri diziyle bir seyler yapan ve yeni bir dizi
+ üreten birbirinden tamamen ayrilmis adimlar dizisi olarak ifade edilir. Ancak bütün bu ara dizileri olusturmak
+ biraz pahali.
+Benzer sekilde, bir forEach'a bir islev geçirir ve bu yönteme dizi yinelemesini bizim için idare ettirmek,
+ rahat ve okunmasi kolay olur. Ancak JavaScript'te islev çagrilari, basit döngü yapilariyla karsilastirildiginda 
+maliyetlidir.
+Ve bu yüzden, bir programin netligini gelistirmeye yardimci olan birçok teknikle birlikte ilerliyor. 
+Soyutlamalar, bilgisayarin yaptigi ham seylerle ve çalistigimiz kavramlar arasinda katmanlar katar ve 
+böylece makinenin daha fazla çalisma yapmasina neden olur. Bu bir demir yasasi degildir - verimsizlik
+ yaratmadan soyutlamalar olusturmak için daha iyi destegi olan programlama dilleri vardir ve deneyimli 
+bir programci, JavaScript'te bile, yine de hizli olan soyut kod yazmanin yollarini bulabilir. Ancak bu çok
+ ortaya çikan bir sorundur.
+Neyse ki, çogu bilgisayar delicesine hizlidir. Mütevazi bir veri kümesi isliyor veya yalnizca bir insan zaman
+ ölçeginde gerçeklesmesi gereken bir sey yapiyorsaniz (örnegin, kullanici bir dügmeyi tiklattiginda)
+ yarim milisaniye süren güzel bir çözüm yazip yazmadiginiz önemli degildir. veya milimetrenin onda birini
+ alan süper-optimize bir çözüm.
+Programinizdaki bir parçanin ne siklikta çalisacagini kabaca takip etmeniz yararlidir. Bir döngü içinde
+ bir döngü varsa (dogrudan veya iç döngüyü tamamlayan biten bir islev çagiran dis döngü araciligiyla),
+ iç döngü içindeki kod NxM kez çalismaya baslar, burada N kez dis döngü tekrarlar ve M, iç döngünün,
+ dis döngünün her iterasyonunda tekrar ettigi sayidir. Bu iç döngü P hareketi yapan baska bir halka içeriyorsa,
+ vücudu M × N × P kez çalisacak ve böylece devam edecektir. Bu, çok sayida ekleme yapabilir ve bir program yavas
+ oldugunda, sorun genellikle iç döngüye oturan kodun yalnizca küçük bir bölümüne kadar izlenebilir.
 Büyük-büyük-büyük-büyük -...
-Dedem Philibert Haverbeke, veri dosyasinda yer almaktadir. Ona baslayarak, verilerdeki en eski insanin, Pauwels van Haverbeke'nin dogrudan atam olup olmadigini ögrenmek için soylarimi izleyebilirim. Ve eger öyleyse, ne kadar DNA buldugumu bilmek isterim
+Dedem Philibert Haverbeke, veri dosyasinda yer almaktadir. Ona baslayarak, verilerdeki en eski insanin,
+ Pauwels van Haverbeke'nin dogrudan atam olup olmadigini ögrenmek için soylarimi izleyebilirim. Ve eger
+ öyleyse, ne kadar DNA buldugumu bilmek isterim
 var byName = {};
 ancestry.forEach(function(person) {
   byName[person.name] = person;
@@ -776,10 +1103,24 @@ ancestry.forEach(function(person) {
 
 console.log(byName["Philibert Haverbeke"]);
 // ? {name: "Philibert Haverbeke", …}
-Simdi, sorun baba özelliklerini izlemek ve Kaç kisiye Pauwels'e ulasmamiz gerektigini saymak kadar basit degildir. Soy agacinda insanlarin ikinci kuzenleriyle (küçük köylerde ve hepsinde) evlenen birkaç vakasi vardir. Bu, soy agacinin dallarinin birkaç yerde yeniden birlesmesine neden oluyor, yani genlerimin 1 / 2G'den fazlasini bu kisiyle paylasiyorum, burada G, Pauwels ile benim arasindaki kusaklar için. Bu formül, her kusak gen havuzunu ikiye böldügü fikrinden gelir.
-Bu sorunu düsünmek için makul bir yöntem, bir diziyi soldan saga dogru tekrar eden degerler birlestirerek tek bir degere yogunlastiran indirgemeye benzer sekilde bakmaktir. Bu durumda, ayni zamanda veri yapisini tek bir degere yogunlastirmak istiyoruz, ancak aile soylarini takip edecek sekilde. Verilerin sekli düz bir liste yerine bir aile agacinin seklidir.
-Bu sekli azaltmanin yolu, atalarindan gelen degerleri birlestirerek belirli bir kisi için bir deger hesaplamaktir. Bu, yinelemeli olarak yapilabilir: eger A kisisiyle ilgileniyorsak, A'nin ebeveynlerinin degerlerini hesaplamak zorundayiz ve bu da A'nin dedesi için degeri hesaplamamizi gerektiriyor vb. Ilke olarak, bu sonsuz sayida insana bakmamizi gerektirir, ancak veri setimiz sinirli oldugundan, bir yerde durmaliyiz. Verilerde olmayan insanlar için kullanilacak olan indirgeme islevimize varsayilan deger verilmesine izin verecegiz. Bizim durumumuzda, bu deger sadece listede olmayan insanlarin DNA'yi baktigimiz atayla paylasmadigi varsayilarak sifirdir.
-Bir kisinin, belirli bir kisinin iki ebeveynden degerlerini birlestiren bir islevi ve bir varsayilan degeri dikkate alindiginda, reduceAncestors, bir soy agacindan bir degeri yogunlastirir.
+Simdi, sorun baba özelliklerini izlemek ve Kaç kisiye Pauwels'e ulasmamiz gerektigini saymak kadar basit
+ degildir. Soy agacinda insanlarin ikinci kuzenleriyle (küçük köylerde ve hepsinde) evlenen birkaç vakasi vardir.
+ Bu, soy agacinin dallarinin birkaç yerde yeniden birlesmesine neden oluyor, yani genlerimin 1 / 2G'den
+ fazlasini bu kisiyle paylasiyorum, burada G, Pauwels ile benim arasindaki kusaklar için. Bu formül,
+ her kusak gen havuzunu ikiye böldügü fikrinden gelir.
+Bu sorunu düsünmek için makul bir yöntem, bir diziyi soldan saga dogru tekrar eden degerler birlestirerek
+ tek bir degere yogunlastiran indirgemeye benzer sekilde bakmaktir. Bu durumda, ayni zamanda veri yapisini 
+tek bir degere yogunlastirmak istiyoruz, ancak aile soylarini takip edecek sekilde. Verilerin sekli düz bir
+ liste yerine bir aile agacinin seklidir.
+Bu sekli azaltmanin yolu, atalarindan gelen degerleri birlestirerek belirli bir kisi için bir deger hesaplamaktir.
+ Bu, yinelemeli olarak yapilabilir: eger A kisisiyle ilgileniyorsak, A'nin ebeveynlerinin degerlerini hesaplamak 
+zorundayiz ve bu da A'nin dedesi için degeri hesaplamamizi gerektiriyor vb. Ilke olarak, bu sonsuz sayida 
+insana bakmamizi gerektirir, ancak veri setimiz sinirli oldugundan, bir yerde durmaliyiz. Verilerde olmayan
+ insanlar için kullanilacak olan indirgeme islevimize varsayilan deger verilmesine izin verecegiz.
+ Bizim durumumuzda, bu deger sadece listede olmayan insanlarin DNA'yi baktigimiz atayla paylasmadigi 
+varsayilarak sifirdir.
+Bir kisinin, belirli bir kisinin iki ebeveynden degerlerini birlestiren bir islevi ve bir varsayilan degeri 
+dikkate alindiginda, reduceAncestors, bir soy agacindan bir degeri yogunlastirir.
 function reduceAncestors(person, f, defaultValue) {
   function valueFor(person) {
     if (person == null)
@@ -790,8 +1131,11 @@ function reduceAncestors(person, f, defaultValue) {
   }
   return valueFor(person);
 }
-Iç islev (valueFor) tek bir kisiyi isler. Özyineleme sihri sayesinde, babanin ve o kisinin annesinin idaresi için kendisini çagirabilir. Sonuçlar, kisi nesnesinin kendisiyle birlikte f olarak geçirilir ve bu f için bu kisinin gerçek degerini döndürür.
-Bunu daha sonra büyükbabamin Pauwels van Haverbeke ile paylastigi DNA miktarini hesaplayabilir ve bunu dört ile bölebiliriz.
+Iç islev (valueFor) tek bir kisiyi isler. Özyineleme sihri sayesinde, babanin ve o kisinin annesinin 
+idaresi için kendisini çagirabilir. Sonuçlar, kisi nesnesinin kendisiyle birlikte f olarak geçirilir
+ ve bu f için bu kisinin gerçek degerini döndürür.
+Bunu daha sonra büyükbabamin Pauwels van Haverbeke ile paylastigi DNA miktarini hesaplayabilir ve bunu
+ dört ile bölebiliriz.
 function sharedDNA(person, fromMother, fromFather) {
   if (person.name == "Pauwels van Haverbeke")
     return 1;
@@ -801,9 +1145,18 @@ function sharedDNA(person, fromMother, fromFather) {
 var ph = byName["Philibert Haverbeke"];
 console.log(reduceAncestors(ph, sharedDNA, 0) / 4);
 // ? 0.00049
-Pauwels van Haverbeke ismini tasiyan kisi, DNA'sinin yüzde 100'ünü Pauwels van Haverbeke ile paylasti (bu veri setinde isimleri paylasan kimse yok), dolayisiyla islev onun için 1 döndürür. Diger herkes, ailelerinin paylastigi miktarlarin ortalamasini paylasmaktadir.
-Istatistiksel olarak konusursak, DNA'min yaklasik yüzde 0,05'ini bu 16. yüzyil insaniyla paylasiyorum. Unutulmamalidir ki, bu sadece istatistiksel bir yaklasimdir, kesin bir miktar degildir. Oldukça küçük bir sayidir, ancak ne kadar genetik materyal tasidigimiza (yaklasik 3 milyar baz çifti) baktigimizda, muhtemelen biyolojik makinada Pauwels'ten kaynaklanan su an benim olan bazi özellikler var.
-Bu numarayi reduceAncestors'a güvenmeden hesaplayabilirdik. Fakat genel yaklasimi (bir aile agacini yogunlastirarak) belirli durumdan ayirmak (paylasilan DNA hesaplamak), kodun netligini artirabilir ve programin soyut bölümünü baska durumlarda tekrar kullanmamiza izin verir. Örnegin, asagidaki kod, 70 yasindan büyük bir kisinin atalarinin bilinen yüzdesini bulmaktadir (soyuna göre, insanlar birkaç kez sayilabilir):
+Pauwels van Haverbeke ismini tasiyan kisi, DNA'sinin yüzde 100'ünü Pauwels van Haverbeke ile
+ paylasti (bu veri setinde isimleri paylasan kimse yok), dolayisiyla islev onun için 1 döndürür.
+ Diger herkes, ailelerinin paylastigi miktarlarin ortalamasini paylasmaktadir.
+Istatistiksel olarak konusursak, DNA'min yaklasik yüzde 0,05'ini bu 16. yüzyil insaniyla paylasiyorum.
+ Unutulmamalidir ki, bu sadece istatistiksel bir yaklasimdir, kesin bir miktar degildir.
+ Oldukça küçük bir sayidir, ancak ne kadar genetik materyal tasidigimiza (yaklasik 3 milyar baz çifti) 
+baktigimizda, muhtemelen biyolojik makinada Pauwels'ten kaynaklanan su an benim olan bazi özellikler var.
+Bu numarayi reduceAncestors'a güvenmeden hesaplayabilirdik. Fakat genel yaklasimi
+ (bir aile agacini yogunlastirarak) belirli durumdan ayirmak (paylasilan DNA hesaplamak),
+ kodun netligini artirabilir ve programin soyut bölümünü baska durumlarda tekrar kullanmamiza izin verir.
+ Örnegin, asagidaki kod, 70 yasindan büyük bir kisinin atalarinin bilinen yüzdesini bulmaktadir 
+(soyuna göre, insanlar birkaç kez sayilabilir):
 function countAncestors(person, test) {
   function combine(current, fromMother, fromFather) {
     var thisOneCounts = current != person && test(current);
@@ -822,10 +1175,16 @@ function longLivingPercentage(person) {
 }
 console.log(longLivingPercentage(byName["Emile Haverbeke"]));
 // ? 0.129
-Veri setimizin çok keyifli bir insan toplulugu içerdigi göz önüne alindiginda, bu sayilarin çok ciddiye alinip alinmasi gerekmiyor. Fakat kod, reduceAncestors'un bize soy agaci veri yapisiyla çalismak için yararli bir kelime dagarcigi verdigini göstermektedir.
+Veri setimizin çok keyifli bir insan toplulugu içerdigi göz önüne alindiginda, bu sayilarin
+ çok ciddiye alinip alinmasi gerekmiyor. Fakat kod, reduceAncestors'un bize soy agaci veri 
+yapisiyla çalismak için yararli bir kelime dagarcigi verdigini göstermektedir.
 baglayici
-Tüm islevlerin sahip oldugu bind yöntemi, özgün islevini çagiracak, ancak bazi bagimsiz degiskenler önceden sabitlenmis yeni bir islev olusturur.
-Asagidaki kod, kullanimdaki bir bag örnegini göstermektedir. Bir kisinin belirli dizgeler dizisinde olup olmadigini söyleyen isInSet islevini tanimlar. Isimleri belirli bir kümede olan kisi nesnelerini toplamak için filtreyi çagirmak için, isInSet ögesine birinci argüman olarak setInInSet ögesini çagiran bir islev ifadesi yazabiliriz veya kismen isInSet islevini uygulayabiliriz.
+Tüm islevlerin sahip oldugu bind yöntemi, özgün islevini çagiracak, ancak bazi bagimsiz degiskenler
+ önceden sabitlenmis yeni bir islev olusturur.
+Asagidaki kod, kullanimdaki bir bag örnegini göstermektedir. Bir kisinin belirli dizgeler dizisinde 
+olup olmadigini söyleyen isInSet islevini tanimlar. Isimleri belirli bir kümede olan kisi nesnelerini
+ toplamak için filtreyi çagirmak için, isInSet ögesine birinci argüman olarak setInInSet ögesini çagiran
+ bir islev ifadesi yazabiliriz veya kismen isInSet islevini uygulayabiliriz.
 
 var theSet = ["Carel Haverbeke", "Maria van Brussel",
               "Donald Duck"];
@@ -840,21 +1199,31 @@ console.log(ancestry.filter(function(person) {
 //    {name: "Carel Haverbeke", …}]
 console.log(ancestry.filter(isInSet.bind(null, theSet)));
 // ? … same result
-Bind çagrisi, ilk bagimsiz degiskeni olarak Set ile isInSet'i ve ardindan bagli isleve verilen kalan bagimsiz degiskenleri çagiran bir islevi döndürür.
-Ilk örnegi, örnegi bos biraktiginda yöntem çagrilari için uygulanir ve ilk bagimsiz degiskene benzer sekilde uygulanir. Bunu bir sonraki bölümde daha ayrintili olarak açiklayacagim.
+Bind çagrisi, ilk bagimsiz degiskeni olarak Set ile isInSet'i ve ardindan bagli isleve verilen kalan
+ bagimsiz degiskenleri çagiran bir islevi döndürür.
+Ilk örnegi, örnegi bos biraktiginda yöntem çagrilari için uygulanir ve ilk bagimsiz degiskene benzer
+ sekilde uygulanir. Bunu bir sonraki bölümde daha ayrintili olarak açiklayacagim.
 özet
-Fonksiyon degerlerini diger fonksiyonlara geçirebilmek, yalnizca bir hile degil, JavaScript'in son derece yararli bir yönüdür. Islevler olarak "bosluklar" içeren hesaplamalar yapmamiza ve bu islevleri çagiran kodun, eksik hesaplamalari tanimlayan islev degerleri saglayarak bosluklari doldurmasina izin verir.
-Diziler, bir dizideki her bir ögeyle ilgili bir seyler yapmak, bazi ögeleri filtreleyerek yeni bir dizi olusturmak için filtrelemek, her ögenin bir islevle yerlestirildigi yeni bir dizi olusturmak için esleme yapmak için, ve tüm dizilerin ögelerini tek bir degere dönüstürmek için azaltin.
-Islevlerin argümanlarini belirten bir dizi ile çagirmak için kullanilabilecek bir apply yöntemi vardir. Ayrica islevin kismen uygulanmis halini olusturmak için kullanilan bir bind yöntemine de sahiptirler.
+Fonksiyon degerlerini diger fonksiyonlara geçirebilmek, yalnizca bir hile degil, JavaScript'in son derece
+ yararli bir yönüdür. Islevler olarak "bosluklar" içeren hesaplamalar yapmamiza ve bu islevleri çagiran kodun,
+ eksik hesaplamalari tanimlayan islev degerleri saglayarak bosluklari doldurmasina izin verir.
+Diziler, bir dizideki her bir ögeyle ilgili bir seyler yapmak, bazi ögeleri filtreleyerek yeni bir dizi 
+olusturmak için filtrelemek, her ögenin bir islevle yerlestirildigi yeni bir dizi olusturmak için esleme
+ yapmak için, ve tüm dizilerin ögelerini tek bir degere dönüstürmek için azaltin.
+Islevlerin argümanlarini belirten bir dizi ile çagirmak için kullanilabilecek bir apply yöntemi vardir. 
+Ayrica islevin kismen uygulanmis halini olusturmak için kullanilan bir bind yöntemine de sahiptirler.
 Egzersizler
 düzlesme
-Bir dizi diziyi, giris dizilerinin tüm ögelerini içeren tek bir diziye "düzlestirmek" için concat yöntemiyle birlikte reduce yöntemini kullanin
+Bir dizi diziyi, giris dizilerinin tüm ögelerini içeren tek bir diziye "düzlestirmek" için concat
+ yöntemiyle birlikte reduce yöntemini kullanin
 var arrays = [[1, 2, 3], [4, 5], [6]];
 // Your code here.
 // ? [1, 2, 3, 4, 5, 6]
 Anne-çocuk yas farki
-Bu bölümdeki örnek veri setini kullanarak, anneler ve çocuklar arasindaki ortalama yas farkini hesaplayin (çocuk dogdugunda annenin yasi). Bu bölümün daha önce tanimlanan ortalama fonksiyonunu kullanabilirsiniz.
-Verilerde belirtilen annelerin hepsinin dizide bulunmadigini unutmayin. Bir kisinin nesnesini adlarindan kolayca bulmasini saglayan byName nesnesi burada yararli olabilir.
+Bu bölümdeki örnek veri setini kullanarak, anneler ve çocuklar arasindaki ortalama yas farkini 
+(çocuk dogdugunda annenin yasi). Bu bölümün daha önce tanimlanan ortalama fonksiyonunu kullanabilirsiniz.
+Verilerde belirtilen annelerin hepsinin dizide bulunmadigini unutmayin. Bir kisinin nesnesini 
+adlarindan kolayca bulmasini saglayan byName nesnesi burada yararli olabilir.
 function average(array) {
   function plus(a, b) { return a + b; }
   return array.reduce(plus) / array.length;
@@ -868,10 +1237,18 @@ ancestry.forEach(function(person) {
 // Your code here.
 
 // ? 31.2
-Ancestry dizisindeki tüm ögeler yararli veriler üretmediginden (annenin dogum tarihini bilmedigimiz sürece yas farkini hesaplayamayiz) ortalama aramadan önce filtreyi bir sekilde uygulamamiz gerekir. Bir hasKnownMother fonksiyonunu tanimlayarak ve ilk önce filtreleyerek bunu ilk geçis olarak yapabilirsiniz. Alternatif olarak, harita arayarak baslayabilir ve esleme islevinde ya yas farkini döndürürsünüz ya da hiç anne bilinmiyorsa null döndürür. Ardindan, diziyi ortalamaya geçirmeden önce null ögeleri kaldirmak için filtreyi arayabilirsiniz.
+Ancestry dizisindeki tüm ögeler yararli veriler üretmediginden (annenin dogum tarihini bilmedigimiz
+ sürece yas farkini hesaplayamayiz) ortalama aramadan önce filtreyi bir sekilde uygulamamiz gerekir.
+ Bir hasKnownMother fonksiyonunu tanimlayarak ve ilk önce filtreleyerek bunu ilk geçis olarak yapabilirsiniz. 
+Alternatif olarak, harita arayarak baslayabilir ve esleme islevinde ya yas farkini döndürürsünüz ya da
+ hiç anne bilinmiyorsa null döndürür. Ardindan, diziyi ortalamaya geçirmeden önce null ögeleri kaldirmak
+ için filtreyi arayabilirsiniz.
 Tarihi ömür beklentisi
-Veri setimizde 90 yildan fazla yasayan tüm insanlara baktigimizda, yalnizca verilerin en yeni nesli çikti. O fenomene daha yakindan bir göz atalim.
-Yüzyil basina ata veri kümesindeki insanlarin ortalama yasini hesaplayin ve çikarin. Math.ceil (person.died / 100) 'de oldugu gibi, bir kisi, ölüm yillarini alarak, 100'e bölünerek ve yuvarlayarak yüzyil basinda atanir.
+Veri setimizde 90 yildan fazla yasayan tüm insanlara baktigimizda, yalnizca verilerin en yeni nesli çikti.
+ O fenomene daha yakindan bir göz atalim.
+Yüzyil basina ata veri kümesindeki insanlarin ortalama yasini hesaplayin ve çikarin. Math.ceil 
+(person.died / 100) 'de oldugu gibi, bir kisi, ölüm yillarini alarak, 100'e bölünerek ve yuvarlayarak
+ yüzyil basinda atanir.
 function average(array) {
   function plus(a, b) { return a + b; }
   return array.reduce(plus) / array.length;
@@ -885,13 +1262,26 @@ function average(array) {
 //   19: 54.8
 //   20: 84.7
 //   21: 94
-Bu örnegin özü, bir koleksiyonun elemanlarini kendi yönleriyle gruplandirmaktir - atalar dizisini, her yüzyilin atalari ile daha küçük dizilere bölerek.
-Gruplandirma islemi sirasinda, yüzyil isimlerini (sayilari) iliskilendiren bir nesneyi, kisi nesneleri veya yaslari dizileri ile saklayin. Hangi kategorileri bulacagimizi önceden bilmedigimiz için bunlari aninda yaratmamiz gerekecek. Her bir kisi için, yüzyillarini hesapladiktan sonra, o yüzyilin zaten bilinip bilinmedigini test ediyoruz. Degilse, bunun için bir dizi ekleyin. Ardindan dogru yüzyilda kisiyi (veya yasi) diziye ekleyin.
+Bu örnegin özü, bir koleksiyonun elemanlarini kendi yönleriyle gruplandirmaktir - atalar dizisini,
+ her yüzyilin atalari ile daha küçük dizilere bölerek.
+Gruplandirma islemi sirasinda, yüzyil isimlerini (sayilari) iliskilendiren bir nesneyi, kisi nesneleri
+ veya yaslari dizileri ile saklayin. Hangi kategorileri bulacagimizi önceden bilmedigimiz için bunlari
+ aninda yaratmamiz gerekecek. Her bir kisi için, yüzyillarini hesapladiktan sonra, o yüzyilin zaten
+ bilinip bilinmedigini test ediyoruz. Degilse, bunun için bir dizi ekleyin. Ardindan dogru yüzyilda 
+kisiyi (veya yasi) diziye ekleyin.
 Son olarak, bir for / in döngüsü, bireysel yüzyillar için ortalama yaslari basmak için kullanilabilir.
-Bonus puanlari için, gruplama islemini özetleyen bir fonksiyon grubuBy yazin. Bagimsiz degiskenler dizisinde ve dizideki bir öge için grup hesaplayan ve grup adlarini grup üyelerinin dizilerine esleyen bir nesne döndüren bir islev kabul etmelidir.
+Bonus puanlari için, gruplama islemini özetleyen bir fonksiyon grubuBy yazin. Bagimsiz degiskenler dizisinde
+ ve dizideki bir öge için grup hesaplayan ve grup adlarini grup üyelerinin dizilerine esleyen bir nesne
+ döndüren bir islev kabul etmelidir.
 Her ve sonra bazilari
-Diziler ayrica standart yöntemlerle birlikte gelir. Her ikisi de argüman olarak bir dizi ögesi ile çagrildiginda, true veya false döndüren bir yüklem islevi alir. Sadece && gibi gerçek bir degeri döndürdügü zaman, her iki taraftaki ifadeler dogru oldugunda, her islevi yalnizca, yüklem dizinin tüm ögeleri için true döndürdügü zaman döndürür. Benzer sekilde, bazilari, yüklem herhangi bir öge için dogru döndürür girmez dogrudur. Gerekli olandan daha fazla öge islemezler - örnegin, yüklemin dizinin ilk ögesi için geçerli oldugunu bulursa, bundan sonraki degerlere bakmaz.
-Bu yöntemler gibi davranan her isleve, bazilari, bir yöntem olmaktan ziyade diziyi ilk argüman olarak kabul etmeleri disinda iki islev yazin.
+Diziler ayrica standart yöntemlerle birlikte gelir. Her ikisi de argüman olarak bir dizi ögesi ile çagrildiginda, 
+true veya false döndüren bir yüklem islevi alir. Sadece && gibi gerçek bir degeri döndürdügü zaman, her iki
+ taraftaki ifadeler dogru oldugunda, her islevi yalnizca, yüklem dizinin tüm ögeleri için true döndürdügü 
+zaman döndürür. Benzer sekilde, bazilari, yüklem herhangi bir öge için dogru döndürür girmez dogrudur.
+ Gerekli olandan daha fazla öge islemezler - örnegin, yüklemin dizinin ilk ögesi için geçerli oldugunu bulursa,
+ bundan sonraki degerlere bakmaz.
+Bu yöntemler gibi davranan her isleve, bazilari, bir yöntem olmaktan ziyade diziyi ilk argüman olarak
+ kabul etmeleri disinda iki islev yazin.
 // Your code here.
 
 console.log(every([NaN, NaN, NaN], isNaN));
